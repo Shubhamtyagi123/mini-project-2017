@@ -1,5 +1,6 @@
 
 body {
+	background: url(../img/bk.jpg) left top repeat;
     font-family: 'Roboto', sans-serif;
     font-size: 16px;
     font-weight: 300;
@@ -18,14 +19,14 @@ a, a:hover, a:focus {
 
 h1, h2 {
 	margin-top: 10px;
-	font-size: 38px;
+	font-size: 50px;
     font-weight: 100;
     color: #555;
     line-height: 50px;
 }
 
 h3 {
-	font-size: 22px;
+	font-size: 28px;
     font-weight: 300;
     color: #555;
     line-height: 30px;
@@ -92,6 +93,10 @@ img { max-width: 100%; }
 	margin: 20px 0 10px 0;
 }
 
+.top-content .description h3 {
+	color: #555;
+}
+
 .top-content .description a:hover, 
 .top-content .description a:focus { border-bottom: 1px dotted #19b9e7; }
 
@@ -155,7 +160,7 @@ img { max-width: 100%; }
 .middle-border {
 	min-height: 300px;
 	margin-top: 170px;
-	border-right: 1px solid #ddd;
+	border-right: 1px solid #FFFFFF;
 }
 
 footer {
@@ -166,7 +171,7 @@ footer .footer-border {
 	width: 200px;
 	margin: 0 auto;
 	padding-bottom: 30px;
-	border-top: 1px solid #ddd;
+	border-top: 1px solid #FFFFFF;
 }
 
 footer a:hover, footer a:focus { border-bottom: 1px dotted #19b9e7; }
