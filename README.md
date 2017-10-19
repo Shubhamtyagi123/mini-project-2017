@@ -4,10 +4,11 @@
 
 <ul>
 	<li>First of all, clean your 'htdocs' folder.</li>
-	<li>Clone the repo, and cut paste the <code>.htaccess</code> and <code>controller.php</code> file in htdocs</li>
-	<li>Open <code>controller.php</code> and change <code>/mini-project-2107/controller.php</code> to <code>/controller.php</code> </li>
+	<li>Clone the repo, and cut paste the <i>.htaccess</i> and <i>controller.php</i> file in htdocs</li>
+	<li>Open <i>controller.php</i> and change <code>/mini-project-2107/controller.php</code> to <code>/controller.php</code> </li>
 	<li>Now cross your fingures and open a web browser and type 'localhost/login'</li>
 	<li>If all goes well, and your stars are shining bright, you should see an "awesome"TM webpage!</li>
+	<li>And most of the work would'nt have been possible without the person who designed the webpage.</li>
 </ul>
 <br>
 <br>
@@ -15,5 +16,5 @@
 <p>
 	In case of any query, please contact <br>
 	~ Aditya Saxena OR Shubham Tyagi <br>
-	~ adityasaxena602@gmail.com & (Tyagi add your email here!)
+	~ adityasaxena602@gmail.com & tyagi201522@gmail.com
 </p>
