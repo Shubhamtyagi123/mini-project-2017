@@ -5,7 +5,7 @@
 <ul>
 	<li>First of all, clean your 'htdocs' folder.</li>
 	<li>Clone the repo, and cut paste the <i>.htaccess</i> and <i>controller.php</i> file in htdocs</li>
-	<li>Open <i>controller.php</i> and change <code>/mini-project-2107/controller.php</code> to <code>/controller.php</code> </li>
+	<li>Open <i>.htaccess</i> and change <code>/mini-project-2017/controller.php</code> to <code>/controller.php</code> </li>
 	<li>Now cross your fingures and open a web browser and type 'localhost/login'</li>
 	<li>If all goes well, and your stars are shining bright, you should see an "awesome"TM webpage!</li>
 	<li>And most of the work would'nt have been possible without the person who designed the webpage.</li>
