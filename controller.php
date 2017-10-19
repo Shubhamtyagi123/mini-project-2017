@@ -1,6 +1,6 @@
 <?php
     
-    // user_id is to be generated dynamically! user this formate --> real_happiness_[number]
+    // user_id is to be generated dynamically! user this formate --> these_HOES_ain't_loyal_[number]
 
  //   require_once ('clogs/db_connect.php');
     $delimeter = "/";
