@@ -10,8 +10,6 @@
 </ul>
 <br>
 <br>
-<br>
-<br>
 
 <p>
 	In case of any query, please contact <br>
