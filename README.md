@@ -4,7 +4,7 @@
 
 <ul>
 	<li>First of all, clean your 'htdocs' folder.</li>
-	<li>Clone the repo, and cut paste the <i>.htaccess</i> file there</li>
+	<li>Clone the repo, and cut paste the <i>.htaccess</i> file in htdocs</li>
 	<li>Now cross your fingures and open a web browser and type 'localhost/login'</li>
 	<li>If all goes well, and your stars are shining bright, you should see an "awesome"TM webpage!</li>
 </ul>
