@@ -24,8 +24,17 @@ body {
     padding : auto;
 }
 
-.navbar ul.no_login li:hover {
-    border-bottom : 4px solid ;
+li.active_ {
+    background : #56bd9c;
+}
+
+li.active_:hover {
+    background : #4da98b;
+    border-bottom : none !important;
+}
+
+li.active_ a {
+    color : #fff !important;
 }
 
 .div-header {
@@ -285,7 +294,7 @@ footer a:hover, footer a:focus {
         font-size : 1.5em;
         font-weight : 400;
         letter-spacing : 1px;
-        color : #000;
+        color : rgba(0, 0, 0, 0.89) !important;
     }
 
     .navbar-header {
@@ -296,6 +305,12 @@ footer a:hover, footer a:focus {
         padding : 5px;
         text-align : left;
         font-size : 1.1em;
+    }
+    li.active_ {
+        background : #fff;
+    }
+    li.active_ a {
+        color : #777 !important;
     }
 }
 

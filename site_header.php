@@ -19,7 +19,7 @@
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right no_login">
             <li><a href="#">Login</a></li>
-            <li><a href="#">Register</a></li>
+            <li class="active_"><a href="#" >Register</a></li>
           </ul>
           <!-- <ul class="nav navbar-nav navbar-right">
             <li class="active"><a href="#">Home</a></li>
