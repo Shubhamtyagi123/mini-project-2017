@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default navbar-fixed-top">
+<nav class="navbar navbar-default"> <!-- navbar-fixed-top -->
       <div class="container">
         <div class="navbar-header">
 
@@ -18,8 +18,8 @@
       </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right no_login">
-            <li><a href="#">Login</a></li>
-            <li class="active_"><a href="#" >Register</a></li>
+            <li><a href="/mini-project-2017/login">Login</a></li>
+            <li class="active_"><a href="/mini-project-2017/login" >Register</a></li>
           </ul>
           <!-- <ul class="nav navbar-nav navbar-right">
             <li class="active"><a href="#">Home</a></li>

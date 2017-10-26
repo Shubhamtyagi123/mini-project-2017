@@ -61,6 +61,7 @@
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
         <link rel="stylesheet" href="/mini-project-2017/css/form-elements.css">
         <link rel="stylesheet" href="/mini-project-2017/css/style.css">
+        <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
 
         <!--jQuery hai bc-->
 
@@ -73,13 +74,16 @@
 <body>
 
     <?php
+
+        include('site_header.php');
+
         if ($caller == 1)
             show_login();
         else
             echo 'Not Found';
 
 
-        include('site_footer.php');
+      //  include('site_footer.php');
     ?>
 
 </body>
