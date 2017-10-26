@@ -77,6 +77,9 @@
             show_login();
         else
             echo 'Not Found';
+
+
+        include('site_footer.php');
     ?>
 
 </body>

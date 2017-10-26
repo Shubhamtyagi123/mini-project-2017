@@ -177,6 +177,7 @@ footer .footer-border {
 footer a:hover, footer a:focus { border-bottom: 1px dotted #19b9e7; }
 
 
+
 /* Media queries */
 
 @media (min-width: 992px) and (max-width: 1199px) {}
