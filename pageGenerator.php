@@ -5,19 +5,10 @@
 		?>
 
 		<div class="top-content">
-            <div class="inner-bg">
+            <div class="inner-bg" style="padding : 0px;">
                 <div class="container">
-                    <div class="row">
-                        <div class="col-sm-8 col-sm-offset-2 text">
-                            <h1>
-                                <strong>Auction Bay</strong>
-                            </h1>
-                            <div class="description">
-                                <h3>Place your bids and Purchase at one click.</h3>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
+                    
+                    <div class="row col-md-offset-1 ">
                         <div class="col-sm-5">
                             <div class="form-box">
                                 <div class="form-top">
@@ -54,8 +45,8 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-1 middle-border"></div>
-                        <div class="col-sm-1"></div>
+                        <div class="col-sm-1 middle-border" style="max-width: 30px"></div>
+                        <div class="col-sm-1" style="max-width: 30px;"></div>
                         <div class="col-sm-5">
                             <div class="form-box">
                                 <div class="form-top">
