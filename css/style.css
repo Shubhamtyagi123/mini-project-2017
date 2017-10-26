@@ -10,6 +10,7 @@ body {
 
 .navbar {
     background : #fff;
+    margin: 0;
 }
 
 .navbar ul {
@@ -51,9 +52,9 @@ li.active_ a {
 }
 
 .img-header {
-    max-height: 141px;
-    max-width: 142px;
-    padding: 11px;
+    max-height: 140px;
+    max-width: 136px;
+    padding: 20px;
 }
 
 .header-img {
