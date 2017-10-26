@@ -64,12 +64,17 @@
 
                                             <div class="row">
                                                 <div class="col-md-6">
+                                                    <div class="form-group">
                                                     <label class="sr-only" for="form-email">First Name</label>
                                             <input type="text" name="form-email" placeholder="First Name..." class="form-email form-control" id="form-f-name">
                                                 </div>
+                                            </div>
+
                                                 <div class="col-md-6">
+                                                    <div class="form-group">
                                                     <label class="sr-only" for="form-email">Last Name</label>
                                             <input type="text" name="form-email" placeholder="Last Name..." class="form-email form-control" id="form-l-name">
+                                                </div>
                                                 </div>
                                             </div>
                                         </div>
