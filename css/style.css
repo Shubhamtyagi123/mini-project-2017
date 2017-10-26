@@ -44,7 +44,7 @@ li.active_ a {
 }
 
 .div-header a {
-    padding-top: 60px;
+    padding-top: 65px;
     padding-left: 12px;
     font-size: 3.5em;
     letter-spacing: -4px;
@@ -256,6 +256,12 @@ img {
     border-right: 1px solid #FFFFFF;
 }
 
+.gif_btn {
+	 padding: 8px 8px 8px 32px;
+ font-family: Arial, Verdana;   
+background: #f0f0f0 url('../kawai_gifs/loading_f.gif');
+background-position: 8px 8px;
+}
 footer {
     padding-bottom: 70px;
 }
