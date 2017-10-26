@@ -1,0 +1,126 @@
+body{
+    background: url('../img/bg.jpg') left no-repeat opacity:0.1; 
+    width: screen;
+}
+
+h1 {
+    color: black;
+    font-size: 80px;
+}
+
+.profile-pic {
+    background-image: url('../img/profile.jpg');
+    border-radius: 50%;
+    height: 150px;
+    width: 150px;
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: multiply;
+    vertical-align: middle;
+    text-align: center;
+    color: transparent;
+    transition: all .3s ease;
+    text-decoration: none;
+    margin-left: 340px;
+}
+
+.profile-pic:hover {
+    background-color: rgba(0,0,0,.5);
+    z-index: 10000;
+    color: #fff;
+    transition: all .3s ease;
+    text-decoration: none;
+}
+
+.profile-pic span {
+    display: inline-block;
+    padding-top: 4.5em;
+    padding-bottom: 4.5em;
+}
+
+.personal-info {
+  margin-left: 120px;
+}
+
+.form-control::-webkit-input-placeholder {
+    color:lightgray;
+    font-size:18px;
+}
+.form-control:-moz-placeholder {
+    color:lightgray;
+    font-size:18px;
+}
+.form-control::-moz-placeholder {
+    color:lightgray;
+    font-size:18px;
+}
+.form-control:-ms-input-placeholder {
+    color:lightgray;
+    font-size:18px;
+}
+
+.panel-1 {
+    margin-bottom: 30px;
+    padding:15px;
+}
+
+.panel-2 {
+    padding: 15px;
+    border: 1px solid silver;
+}
+
+.upper-border {
+    width: 400px;
+    margin: 0 auto;
+    padding-bottom: 30px;
+    
+}
+
+header {
+    margin: 30px;
+    
+}
+footer {
+    padding-bottom: 70px;
+}
+
+footer .footer-border {
+    width: 200px;
+    margin: 0 auto;
+    padding-bottom: 30px;
+    border-top: 1px solid #FFFFFF;
+}
+
+@import "compass/css3";
+
+@-webkit-keyframes fade-in {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+body .background-image {
+  background: url('../img/graf.jpg')  no-repeat center center fixed;
+  
+  -webkit-background-size: 100%;
+  -moz-background-size: 100%;
+  -o-background-size: 100%;
+  background-size: 100%;
+  
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  
+  opacity: 0;
+  
+  -webkit-animation-name: fade-in;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-timing-function: ease-in;
+  -webkit-animation-iteration-count: 1;
+  -webkit-animation-delay: 2s;
+}
+
+.background-image.visible {
+  opacity: 1;
+}
