@@ -17,9 +17,6 @@
 		$exec = mysqli_query($link, $q);
 		$x = mysqli_fetch_object($exec);
 
-		echo $q;
-
-
 		if ($x->num == 0)
 			return false;
 
