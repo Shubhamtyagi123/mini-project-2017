@@ -288,6 +288,45 @@ footer a:hover, footer a:focus {
     /* padding: 0px; */
 }
 
+.failed_mssg {
+    color : red;
+    font-weight : bold;
+}
+
+.extra-large {
+    font-size : 13em;
+    color: #ff9554;
+}
+
+#a-little-big {
+    margin-top : 10px;
+    color : #402222;
+    font-size : 2.4em;
+    font-family : 'roboto',sans-serif;
+    font-weight : bolder;
+    letter-spacing : 1px;
+}
+
+#a-little-medium {
+    margin-top : 25px;
+    color : #191818;
+    font-size : 1.7em;
+    font-family : 'roboto', sans-serif;
+    //font-weight : 400;
+    letter-spacing : 1px;
+}
+
+#a-little-small {
+    color : #151414;
+    font-size : 1.4em;
+    font-weight : 200;
+    letter-spacing : -0.4px;
+}
+
+.page_link:hover {
+    text-decoration : none;
+}
+
 /* Media queries */
 @media (min-width: 992px) and (max-width: 1199px) {
 }

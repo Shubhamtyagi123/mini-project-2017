@@ -14,7 +14,7 @@
 			$pass = clean($link, $_POST['pass_']);
 
 		if (isset($pass) && isset($username)) {
-			$q = "SELECT COUNT(*) AS num FROM $user_login WHERE username = '$username'";
+			$q = "SELECT COUNT(*) AS num FROM $user_login WHERE username = '$username' AND pass = '$pass'";
 			$exec = mysqli_query($link, $q);
 			if ($exec){
 				$x = mysqli_fetch_object($exec);
@@ -26,11 +26,11 @@
 						echo "User logged in!";
 					}
 					else {
-						echo "email not varified yet!";
+						echo "Please verify your email to login.";
 					}
 				}
 				else{
-					echo "invalid user";
+					echo "Wrong Username or password.";
 				}
 
 			}
@@ -40,5 +40,7 @@
 	
 	else
 		echo "Wrong Method!";
+
+	mysqli_close($link);
 
 ?>

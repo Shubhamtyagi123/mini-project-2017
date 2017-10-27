@@ -31,15 +31,14 @@
         break;
 
         case 'register':
-            header('Location: /mini-project-2017/views/login_register.html');
-            die();
+            $caller = 1;
+            
             // show to register page. 
         break;  
 
-        case 'email-verification':
+        case 'verify':
             // call to email-varification function. 
-            header('Location: /email-verification.php');
-            die();
+            $caller = 2;
         break;
 
         default:
@@ -80,6 +79,8 @@
 
         if ($caller == 1)
             show_login();
+        else if ($caller == 2)
+            show_verify();
         else
             echo 'Not Found';
 

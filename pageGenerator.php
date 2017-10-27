@@ -16,6 +16,7 @@
                                     <div class="form-top-left">
                                         <h3>Login</h3>
                                         <p>Enter username and password</p>
+                                        <p class="failed_mssg"></p>
                                     </div>
                                     <!-- gif_show -->
                                     <div class="form-top-right" id="sign_in_gif">
@@ -142,8 +143,10 @@
                             $('#sign_up_gif').addClass(' gif_show');
                         },
                         success : function(res) {
-                            alert(res);
+                            
                             $('#sign_up_gif').removeClass(' gif_show');
+                            if (res == 666)
+                              window.location = "verify";
                         },
                         error : function(a,b,c) {
                             alert('Could not connect to the server!');
@@ -166,7 +169,7 @@
                             $('#sign_in_gif').addClass(' gif_show');
                         },
                         success : function(res) {
-                            alert(res);
+                            $('.failed_mssg').html(res);
                             $('#sign_in_gif').removeClass(' gif_show');
                         },
                         error : function(a,b,c) {
@@ -180,4 +183,29 @@
 
 		<?php
 	}
+
+
+  function show_verify() {
+    ?>
+
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <i class="fa fa-envelope extra-large"></i>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <p id="a-little-big">Congratulations!</p>
+              <p id="a-little-medium"> Just one step away.</p>  
+              <p id="a-little-small">Please check you inbox<span id="email_"><?=isset($_SESSION['emal'])?$_SESSION['email']:"";?></span></p> 
+
+              
+            </div>
+          </div>
+        </div>
+
+    <?php
+  }
+
 ?>
