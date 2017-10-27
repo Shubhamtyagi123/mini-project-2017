@@ -15,7 +15,7 @@
                                 <div class="form-top">
                                     <div class="form-top-left">
                                         <h3>Login</h3>
-                                        <p>Enter username and password to log on:</p>
+                                        <p>Enter username and password</p>
                                     </div>
                                     <!-- gif_show -->
                                     <div class="form-top-right" id="sign_in_gif">
@@ -24,14 +24,14 @@
                                     </div>
                                 </div>
                                 <div class="form-bottom">
-                                    <form role="form" action="" method="post" class="login-form">
+                                    <form role="form" class="login-form" id="sign_in_form">
                                         <div class="form-group">
                                             <label class="sr-only" for="form-username">Username</label>
-                                            <input type="text" name="form-username" placeholder="Username..." class="form-username form-control" id="form-username">
+                                            <input type="text" name="username" placeholder="Username..." class="form-username form-control" id="form-username">
                                         </div>
                                         <div class="form-group">
                                             <label class="sr-only" for="form-password">Password</label>
-                                            <input type="password" name="form-password" placeholder="Password..." class="form-password form-control" id="form-password">
+                                            <input type="password" name="pass_" placeholder="Password..." class="form-password form-control" id="form-password">
                                         </div>
 
                                         <button type="submit" class="btn">
@@ -60,7 +60,7 @@
                                 <div class="form-top">
                                     <div class="form-top-left">
                                         <h3>Hurry up! Register now</h3>
-                                        <p>Fill in the form below to sign up:</p>
+                                        <p>Fill in the form below to sign up</p>
                                     </div>
                                     <div class="form-top-right" id="sign_up_gif" >
                                         <i class="fa fa-tag" id="sign_up_lock"></i>
@@ -150,6 +150,30 @@
                         }
                     })
                 }
+            })
+
+            $('#sign_in_form').on('submit', function(e) {
+                e.preventDefault();
+                var form_d = $('#sign_in_form').serializeArray();
+                
+                
+                    $.ajax({
+                        type : 'POST',
+                        url : 'clogs/login.php',
+                        data : form_d,
+                        beforeSend : function() {
+                            $('#sign_in_lock').remove();
+                            $('#sign_in_gif').addClass(' gif_show');
+                        },
+                        success : function(res) {
+                            alert(res);
+                            $('#sign_in_gif').removeClass(' gif_show');
+                        },
+                        error : function(a,b,c) {
+                            alert('Could not connect to the server!');
+                        }
+                    })
+                
             })
         </script>
         

@@ -283,7 +283,9 @@ footer a:hover, footer a:focus {
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
-    min-height: 157px;
+    min-height: 100px;
+    margin-top: 3px;
+    /* padding: 0px; */
 }
 
 /* Media queries */

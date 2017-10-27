@@ -15,13 +15,14 @@
 		global $users_info;
 		$q = "SELECT COUNT(*) as num  FROM $users_info WHERE email = '$email'";
 		$exec = mysqli_query($link, $q);
-		$x = mysqli_fetch_object($exec);
-
-		if ($x->num == 0)
-			return false;
+		
+		if ($exec){
+			$x = mysqli_fetch_object($exec);
+			if ($x->num == 0)
+				return false;
+		}
 
 		return true;
-
 	}
 
 	function drop_user($link, $email) {
@@ -33,4 +34,18 @@
 		return false;
 	}
 
+	function is_email_varified($link, $username) {
+
+		global $user_login;
+		$q = "SELECT is_email_varified FROM $user_login WHERE username = '$username'";
+		$exec = mysqli_query($link,$q);
+	
+	if ($exec){
+			$x = mysqli_fetch_object($exec);
+			if ($x->is_email_varified == 1)
+				return true;
+		}
+
+		return false;
+	}
 ?>

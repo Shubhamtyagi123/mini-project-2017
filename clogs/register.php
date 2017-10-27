@@ -2,7 +2,6 @@
 	
 	require_once('db_connect.php');
 	require_once('functions.php');
-	require_once('tables.php');
 
 	$f_name = $l_name = $email = $pass = null;
 	// with 'extra' random-ness Mwhahaha!!
