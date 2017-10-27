@@ -31,15 +31,14 @@
         break;
 
         case 'register':
-            header('Location: /mini-project-2017/views/login_register.html');
-            die();
+            $caller = 1;
+            
             // show to register page. 
         break;  
 
-        case 'email-verification':
+        case 'verify':
             // call to email-varification function. 
-            header('Location: /email-verification.php');
-            die();
+            $caller = 2;
         break;
 
         default:
@@ -61,10 +60,12 @@
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
         <link rel="stylesheet" href="/mini-project-2017/css/form-elements.css">
         <link rel="stylesheet" href="/mini-project-2017/css/style.css">
+        <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
 
         <!--jQuery hai bc-->
 
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
         <script src="/mini-project-2017/scripts/scripts.js"></script>
@@ -73,13 +74,18 @@
 <body>
 
     <?php
+
+        include('site_header.php');
+
         if ($caller == 1)
             show_login();
+        else if ($caller == 2)
+            show_verify();
         else
             echo 'Not Found';
 
 
-        include('site_footer.php');
+      //  include('site_footer.php');
     ?>
 
 </body>
