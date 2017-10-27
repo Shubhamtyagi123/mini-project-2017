@@ -44,8 +44,8 @@ li.active_ a {
 }
 
 .div-header a {
-    padding-top: 65px;
-    padding-left: 12px;
+    padding-top: 60px;
+    padding-left: 0px;
     font-size: 3.5em;
     letter-spacing: -4px;
     color: #59616a;
@@ -257,11 +257,12 @@ img {
 }
 
 .gif_btn {
-	 padding: 8px 8px 8px 32px;
- font-family: Arial, Verdana;   
-background: #f0f0f0 url('../kawai_gifs/loading_f.gif');
-background-position: 8px 8px;
+    padding: 8px 8px 8px 32px;
+    font-family: Arial, Verdana;
+    background: #f0f0f0 url('../kawai_gifs/loading_f.gif');
+    background-position: 8px 8px;
 }
+
 footer {
     padding-bottom: 70px;
 }
@@ -275,6 +276,14 @@ footer .footer-border {
 
 footer a:hover, footer a:focus {
     border-bottom: 1px dotted #19b9e7;
+}
+
+.gif_show {
+    background: url(../kawai_gifs/loading_i.gif);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    min-height: 157px;
 }
 
 /* Media queries */
@@ -313,9 +322,11 @@ footer a:hover, footer a:focus {
         text-align : left;
         font-size : 1.1em;
     }
+
     li.active_ {
         background : #fff;
     }
+
     li.active_ a {
         color : #777 !important;
     }
