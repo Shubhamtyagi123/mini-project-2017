@@ -208,4 +208,94 @@
     <?php
   }
 
+
+
+  function show_item($item_url_name) {
+    ?>
+
+    <style type="text/css">
+      body {
+        background: #fff !important;
+      }
+    </style>
+    <div class="container mrg-top">
+
+      <div class="row">
+        <div class="col-md-5">
+          <div class="img-div">
+            <div class="main-img"></div>
+            <div class="sub-imgs">
+              <div class="sub-img"></div>
+              <div class="sub-img"></div>
+              <div class="sub-img"></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-7 text-left mrg-left">
+          <div class="item-name">
+            <p>Lorem ipsum dolor sit amet</p>
+          </div>
+          <div class="desc">
+            <div class="desc-head">Description</div>
+            <div class="desc-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto dignissimos quis consectetur mollitia, facilis praesentium perspiciatis ea aut similique ipsa ut vero voluptates doloremque porro labore sit, alias quisquam saepe! 
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit iure, aspernatur vero vitae saepe magnam consequuntur fuga sint, consequatur ut quod corporis impedit explicabo nobis pariatur porro reprehenderit eius quasi.
+            </div>
+          </div>
+          <hr>
+          <div class="bider-area row">
+            <div class="bid-input col-md-9">
+              <input type="range" min="10" max="50">           
+            </div>
+
+            <div class="bid-amt col-md-3">
+              <i class="fa fa-inr fa-2x"></i><span id="amt">350</span>
+            </div>
+            <div class="col-md-12">
+            <button class="btn" id="bid_btn">Make BID</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <style type="text/css">
+      .rangeslider,
+.rangeslider__fill {
+  transition: background 0.3s;
+}
+
+.rangeslider--is-lowest-value {
+  background-color: white;
+}
+
+.rangeslider--is-highest-value .rangeslider__fill {
+  background-color: hotpink;
+}
+    </style>
+    <script type="text/javascript">
+      $(function() {
+  const cssClasses = [
+    'rangeslider--is-lowest-value',
+    'rangeslider--is-highest-value'
+  ];
+  
+  $('input[type=range]')
+    .rangeslider({
+      polyfill: false
+    })
+    .on('input', function() {
+      const fraction = (this.value - this.min) / (this.max - this.min);
+      if (fraction === 0) {
+        this.nextSibling.classList.add(cssClasses[0]);
+      } else if (fraction === 1) {
+        this.nextSibling.classList.add(cssClasses[1]);
+      } else {
+        this.nextSibling.classList.remove(...cssClasses)
+      }
+    });
+});
+    </script>
+   
+    <?php
+  }
+
 ?>

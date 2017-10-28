@@ -327,6 +327,91 @@ footer a:hover, footer a:focus {
     text-decoration : none;
 }
 
+.col-md-7 {
+    font-family : 'roboto', sans-serif;
+    color : #000;
+}
+/*------------------ITEMS PAGES-----------------*/
+.mrg-top {
+    margin-top : 30px;
+}
+
+.mrg-left {
+    /* padding-left : 50px; */
+}
+
+/*--------------IMAGES--------------------*/
+.img-div {
+    height : 450px;
+    width : 100%;
+    //background : #ddd;
+}
+
+.main-img {
+    height : 330px;
+    width : 100%;
+    background : #afabab;
+    border : 1px solid;
+    border-color : #fff;
+    border-radius: 7px;
+}
+
+.sub-imgs {
+    display : inline-flex;
+    flex-wrap : nowrap;
+    height : 110px;
+    width : 100%;
+}
+
+.sub-img {
+    width : 32%;
+    height : 100%;
+    background : #afa5a5;
+    margin : 5px;
+    border : 1px solid;
+    border-color : #fff;
+    border-radius: 5px;
+}
+
+/*----------------------------------------*/
+/*---------------DESC----------------------*/
+.item-name {
+    text-transform : capitalize;
+    color :#0c0c0c;
+    font-size : 2em;
+    font-weight :400;
+}
+.desc-head {
+    margin-top : 20px;
+    font-weight : 300;
+    font-size : 1.4em;
+
+}
+.desc-body {
+    padding-top : 10px; 
+    font-size : 1.1em;
+    font-weight : 300;
+}
+
+/*-----------------------------------------*/
+/*------------------BID AREA---------------*/
+.bider-area {
+    position : relative;
+    margin-top : 40px;
+    padding-top : 10px;
+}
+#amt {
+    font-size : 4em;
+    padding : 5px;
+}
+#bid_btn {
+    font-size : 1.3em;
+    font-weight : 400;
+    color : #fff;
+    background: #56bd9c;
+}
+/*------------------------------------------*/
+/*-----------------------------------------------*/
 /*------------------FOOTER STYLES----------------*/
 #myFooter {
     background-color: #1E90FF;
@@ -417,6 +502,13 @@ footer a:hover, footer a:focus {
     #myFooter {
         text-align: center;
     }
+
+  .item-name {
+    padding-top : 15px;
+    font-size : 1.6em;
+    font-weight : bolder;
+    
+}
 }
 
 .content {

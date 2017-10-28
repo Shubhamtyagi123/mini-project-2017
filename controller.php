@@ -19,6 +19,8 @@
 
     $values = array_values($page_url);
     $caller = -1;
+
+
     // $values will contain the url parameters, for example.. if the url is : 
     // localhost/real-happiness/profile-code/name
     // then $value[0] = 'real-happiness', $value[1] = 'profile-code', $value[2] = 'name'
@@ -37,8 +39,14 @@
         break;  
 
         case 'verify':
-            // call to email-varification function. 
+             
             $caller = 2;
+        break;
+
+        case 'item':
+            // call to email-varification function.
+            if (isset($values[1])) 
+                $caller = 3;
         break;
 
         default:
@@ -60,6 +68,7 @@
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
         <link rel="stylesheet" href="/mini-project-2017/css/form-elements.css">
         <link rel="stylesheet" href="/mini-project-2017/css/style.css">
+        <link rel="stylesheet" type="text/css" href="/mini-project-2017/css/rangeslider.css">
         <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
 
         <!--jQuery hai bc-->
@@ -69,6 +78,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
         <script src="/mini-project-2017/scripts/scripts.js"></script>
+        <script type="text/javascript" src="/mini-project-2017/scripts/rangeslider.min.js"></script>
 
 </head>
 <body>
@@ -81,6 +91,8 @@
             show_login();
         else if ($caller == 2)
             show_verify();
+        else if ($caller == 3)
+            show_item($values[1]);
         else
             echo 'Not Found';
 
