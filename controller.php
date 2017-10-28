@@ -85,7 +85,7 @@
             echo 'Not Found';
 
 
-      //  include('site_footer.php');
+        include('site_footer.php');
     ?>
 
 </body>

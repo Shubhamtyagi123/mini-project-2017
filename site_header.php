@@ -11,7 +11,7 @@
 
         <div class="div-header">
           <div class="img-header">
-          <img src="img/the_hammer.png" class="header-img">
+          <img src="/mini-project-2017/img/the_hammer.png" class="header-img">
         </div>
           <a class="navbar-brand" href="#">Auction Bay</a>
         </div>
