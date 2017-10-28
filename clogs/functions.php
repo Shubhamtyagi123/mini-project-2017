@@ -40,7 +40,7 @@
 		$q = "SELECT is_email_varified FROM $user_login WHERE username = '$username'";
 		$exec = mysqli_query($link,$q);
 	
-	if ($exec){
+		if ($exec){
 			$x = mysqli_fetch_object($exec);
 			if ($x->is_email_varified == 1)
 				return true;
