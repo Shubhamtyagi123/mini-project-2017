@@ -188,7 +188,7 @@
   function show_verify() {
     ?>
 
-        <div class="container">
+        <div class="container text-center">
           <div class="row">
             <div class="col-md-12">
               <i class="fa fa-envelope extra-large"></i>
@@ -237,18 +237,18 @@
           </div>
           <div class="desc">
             <div class="desc-head">Description</div>
-            <div class="desc-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto dignissimos quis consectetur mollitia, facilis praesentium perspiciatis ea aut similique ipsa ut vero voluptates doloremque porro labore sit, alias quisquam saepe! 
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit iure, aspernatur vero vitae saepe magnam consequuntur fuga sint, consequatur ut quod corporis impedit explicabo nobis pariatur porro reprehenderit eius quasi.
+            <div class="desc-body"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto dignissimos quis consectetur mollitia, facilis praesentium perspiciatis ea aut similique ipsa ut vero voluptates doloremque porro labore sit, alias quisquam saepe! 
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit iure, aspernatur vero vitae saepe magnam consequuntur fuga sint, consequatur ut quod corporis impedit explicabo nobis pariatur porro reprehenderit eius quasi.</p>
             </div>
           </div>
           <hr>
           <div class="bider-area row">
             <div class="bid-input col-md-9">
-              <input type="range" min="10" max="50">           
+              <input id="bid-inpt-bar" type="range" min="10" max="50" value="15" step="5">           
             </div>
 
             <div class="bid-amt col-md-3">
-              <i class="fa fa-inr fa-2x"></i><span id="amt">350</span>
+              <i class="fa fa-inr fa-2x"></i><span id="amt"></span>
             </div>
             <div class="col-md-12">
             <button class="btn" id="bid_btn">Make BID</button>
@@ -256,45 +256,159 @@
           </div>
         </div>
       </div>
+      <hr>
+      <div class="row top-marg">
+        <div class="col-md-4">
+          <div class="seller-info">
+            <div class="head-heading text-left">
+              <p> Seller Info</p>
+              <div class="small-border"></div>
+            </div>
+            <div class="head">
+              <div class="head-img">
+                
+              </div>
+              <div class="seller-details text-center">
+                <div id="name">Aditya Saxena</div>
+                <div id="contact">9897171001</div>
+                <div id="email">adityasaxena602@gmail.com</div>
+              </div>
+
+            </div>
+            <div class="info">
+              <div class="head-heading text-left">
+              <p>Product Info</p>
+              <div class="small-border"></div>
+            </div>
+              <div class="i-info">
+                <div class="li-list">Auction ID : <span class="num-info">AUCBAY-2178</span></div>
+                <div class="li-list">Product ID : <span class="num-info">AUCBAYITM-221378</span></div>
+                <div class="li-list">Auction Start : <span class="num-info">28-Oct-2017</span></div>
+                <div class="li-list">Auction End : <span class="num-info">29-Oct-2017</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="top-bidders">
+            <div class="head-heading text-left">
+              <p>Top Bids</p>
+              <div class="small-border"></div>
+            </div>
+            <div class="user-div">
+              <div class="user-img"></div>
+              <div class="user-info">
+                <div class="user-name">Shubham Tyagi</div>
+                <div class="user-bid">
+                  <i class="fa fa-inr"></i><span class="bid-amt-ss">340</span>
+                </div>
+              </div>
+            </div>
+            <div class="user-div">
+              <div class="user-img"></div>
+              <div class="user-info">
+                <div class="user-name">Aditya Saxena</div>
+                <div class="user-bid">
+                  <i class="fa fa-inr"></i><span class="bid-amt-ss">440</span>
+                </div>
+              </div>
+            </div>
+            <div class="user-div">
+              <div class="user-img"></div>
+              <div class="user-info">
+                <div class="user-name">Aditya Bhat</div>
+                <div class="user-bid">
+                  <i class="fa fa-inr"></i><span class="bid-amt-ss">40</span>
+                </div>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="head-heading text-left">
+              <p>Similar Products</p>
+              <div class="small-border"></div>
+            </div>
+            <!--  limit the product name to max 4 words-->
+            <div class="product-div">
+              <div class="product-img-div"></div>
+              <div class="product-info-div">
+                <div class="product-name-div">Lorem ispsom lato roboto</div>
+                <div class="lower-part">
+                <div class="bid-btn"><button class="bid-btn-small">Bid Now</button></div>
+                <div class="bid-amt-small"><i class="fa fa-inr"></i><span class="bid-amt-ss">300</span></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="product-div">
+              <div class="product-img-div"></div>
+              <div class="product-info-div">
+                <div class="product-name-div">Lorem ispsom lato roboto </div>
+                <div class="lower-part">
+                <div class="bid-btn"><button class="bid-btn-small">Bid Now</button></div>
+                <div class="bid-amt-small"><i class="fa fa-inr"></i><span class="bid-amt-ss">300</span></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="product-div">
+              <div class="product-img-div"></div>
+              <div class="product-info-div">
+                <div class="product-name-div">Lorem ispsom lato roboto</div>
+                <div class="lower-part">
+                <div class="bid-btn"><button class="bid-btn-small">Bid Now</button></div>
+                <div class="bid-amt-small"><i class="fa fa-inr"></i><span class="bid-amt-ss">300</span></div>
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
     </div>
     <style type="text/css">
-      .rangeslider,
-.rangeslider__fill {
-  transition: background 0.3s;
-}
+      .rangeslider,.rangeslider__fill {
+        transition: background 0.3s;
+      }
 
-.rangeslider--is-lowest-value {
-  background-color: white;
-}
+      .rangeslider--is-lowest-value {
+        background-color: white;
+      }
 
-.rangeslider--is-highest-value .rangeslider__fill {
-  background-color: hotpink;
-}
+      .rangeslider--is-highest-value .rangeslider__fill {
+        background-color: hotpink;
+      }
     </style>
     <script type="text/javascript">
-      $(function() {
-  const cssClasses = [
-    'rangeslider--is-lowest-value',
-    'rangeslider--is-highest-value'
-  ];
-  
-  $('input[type=range]')
-    .rangeslider({
-      polyfill: false
-    })
-    .on('input', function() {
-      const fraction = (this.value - this.min) / (this.max - this.min);
-      if (fraction === 0) {
-        this.nextSibling.classList.add(cssClasses[0]);
-      } else if (fraction === 1) {
-        this.nextSibling.classList.add(cssClasses[1]);
-      } else {
-        this.nextSibling.classList.remove(...cssClasses)
-      }
+    $(function() {
+
+      $('#amt').html($('input[type=range]')[0].value);
+            
+      const cssClasses = [
+        'rangeslider--is-lowest-value',
+        'rangeslider--is-highest-value'
+      ];
+      
+      $('input[type=range]')
+        .rangeslider({
+          polyfill: false
+        })
+        .on('input', function() {
+          const fraction = (this.value - this.min) / (this.max - this.min);
+          if (fraction === 0) {
+            this.nextSibling.classList.add(cssClasses[0]);
+          } else if (fraction === 1) {
+            this.nextSibling.classList.add(cssClasses[1]);
+          } else {
+            this.nextSibling.classList.remove(...cssClasses)
+          }
+
+          $('#amt').html(this.value);
+
+        });
     });
-});
     </script>
-   
+       
     <?php
   }
 
