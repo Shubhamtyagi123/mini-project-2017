@@ -5,7 +5,6 @@ body {
     font-weight: 300;
     color: #888;
     line-height: 30px;
-    text-align: center;
 }
 
 .navbar {
@@ -327,9 +326,249 @@ footer a:hover, footer a:focus {
     text-decoration : none;
 }
 
+.col-md-7 {
+    font-family : 'roboto', sans-serif;
+    color : #000;
+}
+
+/*------------------ITEMS PAGES-----------------*/
+.mrg-top {
+    margin-top : 30px;
+}
+
+.mrg-left {
+    /* padding-left : 50px; */
+}
+
+/*--------------IMAGES--------------------*/
+.img-div {
+    height : 450px;
+    width : 100%;
+    //background : #ddd;
+}
+
+.main-img {
+    height : 330px;
+    width : 100%;
+    background : #afabab;
+    border : 1px solid;
+    border-color : #fff;
+    border-radius: 7px;
+}
+
+.sub-imgs {
+    display : inline-flex;
+    flex-wrap : nowrap;
+    height : 110px;
+    width : 100%;
+}
+
+.sub-img {
+    width : 32%;
+    height : 100%;
+    background : #afa5a5;
+    margin : 5px;
+    border : 1px solid;
+    border-color : #fff;
+    border-radius: 5px;
+}
+
+/*----------------------------------------*/
+/*---------------DESC----------------------*/
+.item-name {
+    text-transform : capitalize;
+    color : #0c0c0c;
+    font-size : 2em;
+    font-weight : 400;
+}
+
+.desc-head {
+    margin-top : 20px;
+    font-weight : 300;
+    font-size : 1.4em;
+}
+
+.desc-body {
+    padding-top : 10px;
+    font-size : 1.1em;
+    font-weight : 300;
+}
+
+/*-----------------------------------------*/
+/*------------------BID AREA---------------*/
+.bider-area {
+    position : relative;
+    margin-top : 40px;
+    padding-top : 10px;
+}
+
+#amt {
+    font-size : 4em;
+    padding : 5px;
+}
+
+#bid_btn {
+    font-size : 1.3em;
+    font-weight : 400;
+    color : #fff;
+    background: #56bd9c;
+}
+
+.product-div {
+    margin-top : 30px;
+    color : #615a5a;
+    display : inline-flex;
+    flex-wrap : nowrap;
+}
+
+.product-img-div {
+    height : 90px;
+    width : 90px;
+    background : #ddd;
+    border : 1px solid;
+    border-color : transparent;
+    border-radius : 5px;
+}
+
+.bid-btn-small {
+    background : #56bd9c;
+    border-radius : 3px;
+    border : none;
+    color : #fff;
+}
+
+.user-div {
+    padding-top : 30px;
+    display : inline-flex;
+    flex-wrap : nowrap;
+    color : #615a5a;
+}
+
+.user-img {
+    height : 90px;
+    width : 90px;
+    background : #ddd;
+    border : 1px transparent;
+    border-radius : 5px;
+}
+
+.user-info {
+    position : relative;
+    padding-left : 10px;
+}
+
+.user-name {
+    font-size : 1.5em;
+    font-weight : 400;
+}
+
+.user-bid {
+    padding-top : 15px;
+}
+
+
+/*------------------------------------------*/
+/*------------------SELLER-INFO-------------*/
+.head {
+    display : inline-flex;
+    position : relative;
+    margin-top : 30px;
+}
+
+.head-img {
+    height : 125px;
+    width : 125px;
+    max-width : 135px;
+    max-height : 135px;
+    background : #ddd;
+    border : 1px solid;
+    border-color : #fff;
+    border-radius : 7px;
+}
+
+.head-heading {
+    font-size : 1.8em;
+    font-weight : 400;
+    font-family : 'lato', sans-serif;
+}
+
+.seller-details {
+    text-align : left;
+    padding-top : 0px;
+    padding-left : 15px;
+    font-weight : 400;
+    padding-bottom : 70px;
+    color : #615a5a;
+}
+
+.seller-details #name {
+    font-size : 1.5em;
+}
+
+.small-border {
+    border-bottom : 4px solid;
+    border-color: dodgerblue;
+    max-width : 25px;
+    padding : 0;
+    margin : 0;
+    position : relative;
+}
+
+.i-info {
+    padding-top : 20px;
+}
+
+.li-list {
+    color : #615a5a;
+}
+
+.num-info {
+    font-weight : 400;
+    padding-left : 5px;
+    color : #4a4343;
+}
+
+.product-info-div {
+    padding-left : 10px;
+}
+
+.bid-btn {
+    width : -webkit-fill-available;
+}
+
+.product-name-div {
+    font-size : 1.2em;
+    color : #000000;
+    font-weight : 400;
+}
+
+.lower-part {
+    display : inline-flex;
+    flex-wrap : nowrap;
+    padding-top : 20px;
+    width : 100%;
+}
+
+.bid-btn-small {
+    width : -webkit-fill-available;
+}
+
+.bid-amt-small {
+    width : -webkit-fill-available;
+    text-align : right;
+    padding-left : 10px;
+}
+
+.bid-amt-ss {
+    font-size : 3em;
+    padding-left : 2px;
+}
+
+/*------------------------------------------*/
+/*-----------------------------------------------*/
 /*------------------FOOTER STYLES----------------*/
 #myFooter {
-    background-color: #87CEEB;
+    background-color: #1E90FF;
     color: #FFF;
 }
 
@@ -417,6 +656,12 @@ footer a:hover, footer a:focus {
     #myFooter {
         text-align: center;
     }
+
+    .item-name {
+        padding-top : 15px;
+        font-size : 1.6em;
+        font-weight : bolder;
+    }
 }
 
 .content {
@@ -446,6 +691,11 @@ footer a:hover, footer a:focus {
         border-top: 1px solid #ddd;
     }
 
+    .bid-amt {
+        margin-top: 40px;
+        margin-bottom: 15px;
+    }
+
     .img-header {
         display: none;
     }
@@ -456,6 +706,23 @@ footer a:hover, footer a:focus {
         font-weight : 400;
         letter-spacing : 1px;
         color : rgba(0, 0, 0, 0.89) !important;
+    }
+
+    .head-img {
+        width : 105px;
+        height : 105px;
+    }
+
+    .seller-details {
+        padding-left : 5px;
+    }
+
+    .seller-details {
+        font-size : .9em;
+    }
+
+    .seller-details #name {
+        font-size : 1.4em;
     }
 
     .navbar-header {
