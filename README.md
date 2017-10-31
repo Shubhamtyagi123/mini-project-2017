@@ -10,10 +10,8 @@
 	<li>If all goes well, and your stars are shining bright, you should see an "awesome"TM webpage!</li>
 	<li>And most of the work would'nt have been possible without the person who designed the webpage.</li>
 </ul>
-<br>
-<br>
 
-![stack Overflow](https://cdnjs.cloudflare.com/ajax/libs/twemoji/2.2.5/2/svg/1f446.svg)
+&bnsp;&nbsp;&nbsp;  ![stack Overflow](https://cdnjs.cloudflare.com/ajax/libs/twemoji/2.2.5/2/svg/1f446.svg | width=34)
 
 <p>
 	In case of any query, please contact <br>
