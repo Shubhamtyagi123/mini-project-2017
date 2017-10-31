@@ -12,7 +12,7 @@
 </ul>
 
 
-![stack Overflow](https://cdnjs.cloudflare.com/ajax/libs/twemoji/2.2.5/2/svg/1f446.svg){:width="34"}
+![stack Overflow](https://cdnjs.cloudflare.com/ajax/libs/twemoji/2.2.5/2/svg/1f446.svg =34x34)
 
 
 <p>
