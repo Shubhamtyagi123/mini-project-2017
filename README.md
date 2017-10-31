@@ -13,7 +13,7 @@
 <br>
 <br>
 
-![stack Overflow](http://lmsotfy.com/so.png)
+![stack Overflow](https://cdnjs.cloudflare.com/ajax/libs/twemoji/2.2.5/2/svg/1f446.svg)
 
 <p>
 	In case of any query, please contact <br>
