@@ -12,7 +12,7 @@
 </ul>
 <br>
 <br>
-![up-hand](https://cdnjs.cloudflare.com/ajax/libs/twemoji/2.2.5/2/svg/1f446.svg)
+![stack Overflow](http://lmsotfy.com/so.png)
 <p>
 	In case of any query, please contact <br>
 	~ Aditya Saxena OR Shubham Tyagi <br>
