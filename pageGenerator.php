@@ -244,7 +244,7 @@
           <hr>
           <div class="bider-area row">
             <div class="bid-input col-md-9">
-              <input id="bid-inpt-bar" type="range" min="10" max="50" value="15" step="5">           
+              <input id="bid-inpt-bar" type="range" min="10" max="9999" value="15" step="5">           
             </div>
 
             <div class="bid-amt col-md-3">
