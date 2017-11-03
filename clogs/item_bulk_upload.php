@@ -25,7 +25,7 @@
 
     	if (sizeof($a) == $col_size){
 	 		// if all the fields are present, check for individual fileds' correct-ness
-	 		
+
       		$a = array_combine($csv[0], $a);
 
 				// Name, !notEmpty
@@ -38,21 +38,25 @@
 				// Auction-Durration, !notEmppty (in days)
 				// Description !notEmpty
 
-      		if (!empty($a['Name']) || !empty($a['Main-Image']) || !empty($a['Starting-Price'])
-      				|| !empty($a['Auction-Start-Date']) || !empty($a['Auction-Duration'])
-      					|| !empty($a['Description'])){
-      			// indiviual validations here
+      		if (!empty($a['Name']) && !empty($a['Main-Image']) && !empty($a['Starting-Price'])
+      				&& !empty($a['Auction-Start-Date']) && !empty($a['Auction-Duration'])
+      					&& !empty($a['Description'])){
+
+      			// check if file exists 
       			if (!file_exists($a['Main-Image']))
       				$img_counter++;
+      			
+      			// default max-proce to 999
+      			if (empty($a['Max-Price']))
+      				$a['Max-Price']= 999;
 
-      			if (!is_numeric($a['Starting-Price']) || !is_numeric($a['Max-Price']) || 
-      				!is_numeric($a['Bid-Interval']))
-      					$num_counter++;
-
+      			// check if numeric input
+      			if (!is_numeric($a['Starting-Price']) || !is_numeric($a['Max-Price']) 
+      					|| !is_numeric($a['Bid-Interval']))
+      				$num_counter++;
+      			// check if date if valid.. :date(format):: YYYY-MM-DD
       			if (!is_date_valid($a['Auction-Start-Date']))
       				$date_counter++;
-
-      			
 			}
 			else {
       			echo "Error at line ".$line_num.". Seems like not all required fields and filled!<br>";
