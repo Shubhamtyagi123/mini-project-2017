@@ -403,7 +403,7 @@ footer a:hover, footer a:focus {
 }
 
 #amt {
-    font-size : 4em;
+    font-size: 3.1em;
     padding : 5px;
 }
 
@@ -460,6 +460,7 @@ footer a:hover, footer a:focus {
 .user-name {
     font-size : 1.5em;
     font-weight : 400;
+    color: rgba(0, 0, 0, 0.79);
 }
 
 .user-bid {
@@ -490,6 +491,7 @@ footer a:hover, footer a:focus {
     font-size : 1.8em;
     font-weight : 400;
     font-family : 'lato', sans-serif;
+    color: rgba(0, 0, 0, 0.81);
 }
 
 .seller-details {
@@ -563,12 +565,14 @@ footer a:hover, footer a:focus {
     font-size : 3em;
     padding-left : 2px;
 }
-
+.dropdown-menu>li>a{
+    font-size: 0.7em;
+}
 /*------------------------------------------*/
 /*-----------------------------------------------*/
 /*------------------FOOTER STYLES----------------*/
 #myFooter {
-    background-color: #1E90FF;
+    background-color: rgb(86, 189, 156);
     color: #FFF;
 }
 
@@ -651,7 +655,9 @@ footer a:hover, footer a:focus {
 #myFooter .twitter:hover {
     color: #00aced;
 }
-
+ul.dropdown-menu.show {
+    padding: 25px !important;
+}
 @media screen and (max-width: 767px) {
     #myFooter {
         text-align: center;
@@ -667,7 +673,7 @@ footer a:hover, footer a:focus {
 .content {
     flex: 1 0 auto;
     -webkit-flex: 1 0 auto;
-    min-height: 200px;
+    min-height: 100px;
 }
 
 #myFooter {

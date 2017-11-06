@@ -8,7 +8,10 @@ error_reporting(-1);
     $file_name = pathinfo($file,PATHINFO_BASENAME);
    
 
-    echo copy($file, $location.$file_name); 
+    if (file_exists($file))
+        echo "Write";
+        else
+        echo 'wrong'; 
 
 
 

@@ -44,7 +44,6 @@
         break;
 
         case 'item':
-            // call to email-varification function.
             if (isset($values[1])) 
                 $caller = 3;
         break;
