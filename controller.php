@@ -64,7 +64,7 @@
                     $caller = 5;
             }
             else
-                $caller = 1;
+                header('Location: /mini-project-2017/login');
         break;
 
         default:
