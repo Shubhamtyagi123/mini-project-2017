@@ -1,24 +1,41 @@
-<!DOCTYPE html>
-<html>
+<?php
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/mini-project-2017/css/style_front_page.css">
-    <style type="text/css">
-      body {
-        background: none;
-      }
-    </style>
-</head>
+	function show_profile($username) {
+		?>
+		<style type="text/css">
+			body {
+				background: none;
+			}
+		</style>
+		<div class="container" style="min-height: 100vh">
+			<form id='file_form' action="">
+			<input type="file" name="file_inp">
+			<button class="btn" id="btn_file_inp"></button>
+			</form>
+		</div>
 
-<body>
-	<header>
-	<?php require_once('site_header.php');?>
-  </header>
+		<script type="text/javascript">
+			$('#file_form').on('submit', function(e) {
+				e.preventDefault();
+
+				/*$.ajax({
+					type : 'POST',
+					
+				})*/
+			})
+		</script>
+
+		<?php
+	}
+
+	function show_index($link, $username) {
+		?>
+		<style type="text/css">
+			body {
+				background: none;
+			}
+		</style>
+
  
   <div id="myCarousel" class="carousel slide" data-ride="carousel">
   <!-- Indicators -->
@@ -27,20 +44,20 @@
     <li data-target="#myCarousel" data-slide-to="1"></li>
     <li data-target="#myCarousel" data-slide-to="2"></li>
   </ol>
-
   <div class="carousel-inner" role="listbox" style="max-height: 400px;">
+
     <div class="item active">
-      <img src="img/books.jpg" alt="books">
+      <img src="/mini-project-2017/img/books.jpg" alt="books">
      
     </div>
 
     <div class="item">
-      <img src="img/appliances.jpg" alt="appliances">
+      <img src="/mini-project-2017/img/appliances.jpg" alt="appliances">
         
     </div>
 
     <div class="item">
-      <img src="img/mobile-group.png" alt="mobile phones">
+      <img src="/mini-project-2017/img/mobile-group.png" alt="mobile phones">
       
     </div>
   </div>
@@ -75,7 +92,7 @@
                 	<p>MRP: Rs. 30000</p>
                   <div class="thumbnail">
                     
-   					          <img src="img/iphone.jpg" alt="books" style="text-align: center;">
+   					          <img src="/mini-project-2017/img/iphone.jpg" alt="books" style="text-align: center;">
                     
                     <p style="font-size: 16px"><strong>AUCTION ID: </strong>113</p>
       					     <div class="panel panel-footer">
@@ -101,7 +118,7 @@
                 <div class="panel-body">
                 	<p>MRP: Rs. 30000</p>
                   <div class="thumbnail" >
-   		         			<img src="img/iphone.jpg" alt="iphone">
+   		         			<img src="/mini-project-2017/img/iphone.jpg" alt="iphone">
                     <p style="font-size: 16px"><strong>AUCTION ID: </strong>225</p>
       						  	<div class="panel panel-footer">
       					   	   <div class="bid-money">
@@ -126,7 +143,7 @@
                 <div class="panel-body">
                 	<p>MRP: Rs. 30000</p>
                   <div class="thumbnail">
-   		         			<img src="img/iphone.jpg" alt="iphone">
+   		         			<img src="/mini-project-2017/img/iphone.jpg" alt="iphone">
                     <p style="font-size: 16px"><strong>AUCTION ID: </strong>746</p>
       				    		<div class="panel panel-footer">
       					 	     <div class="bid-money">
@@ -160,7 +177,7 @@
                   <p>MRP: Rs. 30000</p>
                   <div class="thumbnail">
                     
-                      <img src="img/iphone.jpg" alt="books" style="text-align: center;">
+                      <img src="/mini-project-2017/img/iphone.jpg" alt="books" style="text-align: center;">
                     
                     <p style="font-size: 16px"><strong>AUCTION ID: </strong>113</p>
                      <div class="panel panel-footer">
@@ -186,7 +203,7 @@
                 <div class="panel-body">
                   <p>MRP: Rs. 30000</p>
                   <div class="thumbnail" >
-                    <img src="img/iphone.jpg" alt="iphone">
+                    <img src="/mini-project-2017/img/iphone.jpg" alt="iphone">
                     <p style="font-size: 16px"><strong>AUCTION ID: </strong>225</p>
                       <div class="panel panel-footer">
                        <div class="bid-money">
@@ -211,7 +228,7 @@
                 <div class="panel-body">
                   <p>MRP: Rs. 30000</p>
                   <div class="thumbnail">
-                    <img src="img/iphone.jpg" alt="iphone">
+                    <img src="/mini-project-2017/img/iphone.jpg" alt="iphone">
                     <p style="font-size: 16px"><strong>AUCTION ID: </strong>746</p>
                       <div class="panel panel-footer">
                        <div class="bid-money">
@@ -245,7 +262,7 @@
                   <p>MRP: Rs. 30000</p>
                   <div class="thumbnail">
                     
-                      <img src="img/books.jpg" alt="books" style="text-align: center;">
+                      <img src="/mini-project-2017/img/books.jpg" alt="books" style="text-align: center;">
                     
                     <p style="font-size: 16px"><strong>AUCTION ID: </strong>113</p>
                      <div class="panel panel-footer">
@@ -271,7 +288,7 @@
                 <div class="panel-body">
                   <p>MRP: Rs. 30000</p>
                   <div class="thumbnail" >
-                    <img src="img/books.jpg" alt="iphone">
+                    <img src="/mini-project-2017/img/books.jpg" alt="iphone">
                     <p style="font-size: 16px"><strong>AUCTION ID: </strong>225</p>
                       <div class="panel panel-footer">
                        <div class="bid-money">
@@ -296,7 +313,7 @@
                 <div class="panel-body">
                   <p>MRP: Rs. 30000</p>
                   <div class="thumbnail">
-                    <img src="img/books.jpg" alt="iphone">
+                    <img src="/mini-project-2017/img/books.jpg" alt="iphone">
                     <p style="font-size: 16px"><strong>AUCTION ID: </strong>746</p>
                       <div class="panel panel-footer">
                        <div class="bid-money">
@@ -335,7 +352,7 @@
                 <div class="panel-body">
                   <p>MRP: Rs. 30000</p>
                   <div class="thumbnail">
-                    <img src="img/iphone.jpg" alt="iphone">
+                    <img src="/mini-project-2017/img/iphone.jpg" alt="iphone">
                     <p style="font-size: 16px"><strong>AUCTION ID: </strong>225</p>
                      
             
@@ -354,7 +371,7 @@
                 <div class="panel-body">
                   <p>MRP: Rs. 30000</p>
                   <div class="thumbnail" >
-                    <img src="img/iphone.jpg" alt="iphone">
+                    <img src="/mini-project-2017/img/iphone.jpg" alt="iphone">
                     <p style="font-size: 16px"><strong>AUCTION ID: </strong>225</p>
                       
                   </div>
@@ -373,7 +390,7 @@
                 <div class="panel-body">
                   <p>MRP: Rs. 30000</p>
                   <div class="thumbnail" >
-                    <img src="img/iphone.jpg" alt="iphone">
+                    <img src="/mini-project-2017/img/iphone.jpg" alt="iphone">
                     <p style="font-size: 16px"><strong>AUCTION ID: </strong>225</p>
                       
 
@@ -392,7 +409,7 @@
                 <div class="panel-body">
                   <p>MRP: Rs. 30000</p>
                   <div class="thumbnail" >
-                    <img src="img/iphone.jpg" alt="iphone">
+                    <img src="/mini-project-2017/img/iphone.jpg" alt="iphone">
                     <p style="font-size: 16px"><strong>AUCTION ID: </strong>225</p>
                     
                 </div>
@@ -410,7 +427,7 @@
   <div class="row" style="margin-top: 60px">
     <div class="container wrapper">
     <div class="col-sm-5" style="text-align: left; height: 213px">
-      <h2 style="height: 36px">Auction Bay bidding rules :</h2>
+      <h3 style="height: 36px">Auction Bay bidding rules :</h3>
       <div class="small-border"></div>
       <ul style="margin-left: -30px">
         <br>
@@ -428,7 +445,7 @@
     <div class="col-sm-1 middle-border"></div>
     <div class="col-sm-1"></div>
     <div class="col-sm-5" style="text-align: left;">
-      <h2>Protected Online Shopping</h2>
+      <h3>Protected Online Shopping</h3>
       <div class="small-border"></div>
       <ul style="margin-left: -30px;">
         <br>
@@ -437,10 +454,9 @@
     </div>
   </div>
 </div>
-        <?php require_once('site_footer.php');?>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="/mini-project-2017/scripts/script_.js"></script>
+	
+	<?php
 
+	}
 
-</html>
+?>

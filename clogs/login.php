@@ -8,8 +8,8 @@
 	global $user_login;
 
 	if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-		if (isset($_POST['username']))
-			$username = clean($link, $_POST['username']);
+		if (isset($_POST['username_']))
+			$username = clean($link, $_POST['username_']);
 		if (isset($_POST['pass_']))
 			$pass = clean($link, $_POST['pass_']);
 
@@ -21,9 +21,9 @@
 				if ($x->num == 1) {
 					// user found
 					if (is_email_varified($link, $username)){
-						$_SESSION['username'] = $username;
+						$_SESSION['username_'] = $username;
 						$_SESSION['is_logged_in'] = 1;
-						echo "User logged in!";
+						echo 1;
 					}
 					else {
 						echo "Please verify your email to login.";

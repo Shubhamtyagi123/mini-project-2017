@@ -250,9 +250,9 @@ img {
 }
 
 .middle-border {
-    min-height: 300px;
+    min-height: 0px;
     margin-top: 170px;
-    border-right: 1px solid #FFFFFF;
+    border-right: 1px solid #ffffff;
 }
 
 .gif_btn {

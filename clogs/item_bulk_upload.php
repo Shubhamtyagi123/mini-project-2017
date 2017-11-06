@@ -40,7 +40,7 @@
 
       		if (!empty($a['Name']) && !empty($a['Main-Image']) && !empty($a['Starting-Price'])
       				&& !empty($a['Auction-Start-Date']) && !empty($a['Auction-Duration'])
-      					&& !empty($a['Description'])){
+      					&& !empty($a['Description']) && !empty($a['Category'])){
 
       			// check if file exists 
       			if (!file_exists($a['Main-Image']))
