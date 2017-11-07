@@ -7,17 +7,38 @@
     <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/mini-project-2017/css/style_front_page.css">
-    <style type="text/css">
-      body {
-        background: none;
-      }
-    </style>
+    <link rel="stylesheet" href="css/style_front_page.css">
 </head>
 
 <body>
 	<header>
-	<?php require_once('site_header.php');?>
+	<nav class="navbar navbar-default"> <!-- navbar-fixed-top -->
+      <div class="container">
+        <div class="navbar-header">
+
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+
+        <div class="div-header">
+          <div class="img-header">
+          <img src="img/the_hammer.png" class="header-img">
+        </div>
+          <a class="navbar-brand" href="#">Auction Bay</a>
+        </div>
+      </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right no_login">
+            <li><a href="/mini-project-2017/login">Login</a></li>
+            <li class="active_"><a href="/mini-project-2017/login" >Register</a></li>
+          </ul>
+          
+        </div><!--/.nav-collapse -->
+      </div>
+  </nav>
   </header>
  
   <div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -28,7 +49,7 @@
     <li data-target="#myCarousel" data-slide-to="2"></li>
   </ol>
 
-  <div class="carousel-inner" role="listbox" style="max-height: 400px;">
+  <div class="carousel-inner" role="listbox">
     <div class="item active">
       <img src="img/books.jpg" alt="books">
      
@@ -437,10 +458,53 @@
     </div>
   </div>
 </div>
-        <?php require_once('site_footer.php');?>
+	<div class="content">
+	</div>
+    <footer id="myFooter" style="background-color: #87CEEB">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-3 myCols">
+                    <h5>Get started</h5>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Sign up</a></li>
+                        <li><a href="#">Downloads</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-3 myCols">
+                    <h5>Support</h5>
+                    <ul>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Help desk</a></li>
+                        <li><a href="#">Forums</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-3 myCols">
+                    <h5>Legal</h5>
+                    <ul>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Terms of Use</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-3 myCols">
+                    <h5>Information</h5>
+                    <p> Lorem ipsum dolor amet, consectetur adipiscing elit. Etiam consectetur aliquet aliquet. Interdum et malesuada fames ac ante ipsum primis in faucibus. </p>
+                </div>
+            </div>
+        </div>
+        <div class="social-networks">
+            <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+            <a href="#" class="facebook"><i class="fa fa-facebook-official"></i></a>
+            <a href="#" class="google"><i class="fa fa-google-plus"></i></a>
+        </div> 
+        <div class="footer-copyright">
+            <p>Copyright 2017 - <a href="#">Auction Bay Corporation</a>. All rights reserved.</p>
+        </div>
+    </footer>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="/mini-project-2017/scripts/script_.js"></script>
+    <script src="js/script.js" type="text/javascript"></script>
 
 
 </html>

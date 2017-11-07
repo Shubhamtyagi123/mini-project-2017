@@ -26,6 +26,7 @@
 	}
 
 	function drop_user($link, $email) {
+	
 		global $users_info;
 		$q = "DELETE FROM $users_info WHERE email = '$email'";
 		if (mysqli_query($link, $q))
@@ -47,5 +48,19 @@
 		}
 
 		return false;
+	}
+
+	function get_user_name($link, $username) {
+
+		global $users_info;
+		$q = "SELECT CONCAT(f_name,' ', l_name) AS name from $users_info WHERE email = '$username'";
+		$row = mysqli_query($link, $q);
+		if ($row && (mysqli_num_rows($row) == 1)) {
+			$x = mysqli_fetch_object($row);
+			return ', '.$x->name;
+		}
+
+		return $q;
+
 	}
 ?>

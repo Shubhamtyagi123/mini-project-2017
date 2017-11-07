@@ -2,9 +2,17 @@
     
     // user_id is to be generated dynamically! user this formate --> these_HOES_ain't_loyal_[number]
 
- //   require_once ('clogs/db_connect.php');
+    // require_once ('clogs/db_connect.php');
+    session_start();
     $delimeter = "/";
+    
+    require_once('../mini-project-2017/clogs/functions.php');
+    require_once('../mini-project-2017/clogs/db_connect.php');
+
     require_once('pageGenerator.php');
+    require_once('profile.php');
+    require_once('../mini-project-2017/clogs/db_connect.php');
+
     $page_url = explode('/', $_SERVER['REQUEST_URI']);
     $script_url = explode('/', $_SERVER['SCRIPT_NAME']);
 
@@ -48,6 +56,17 @@
                 $caller = 3;
         break;
 
+        case 'user':
+            if(isset($_SESSION['username_'])){
+                $caller = 4;
+
+                if ($values[1] == 'profile')
+                    $caller = 5;
+            }
+            else
+                header('Location: /mini-project-2017/login');
+        break;
+
         default:
             echo $values[0];
         break;
@@ -63,9 +82,11 @@
         <title><?=ucwords($values[0]). " | Auction Bay";?></title>
         
         <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
-        <link rel="stylesheet" href="/mini-project-2017/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
         <link rel="stylesheet" href="/mini-project-2017/css/form-elements.css">
+        <link rel="stylesheet" href="/mini-project-2017/css/style_front_page.css">
+
         <link rel="stylesheet" href="/mini-project-2017/css/style.css">
         <link rel="stylesheet" type="text/css" href="/mini-project-2017/css/rangeslider.css">
         <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
@@ -75,8 +96,10 @@
             <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <script src="/mini-project-2017/scripts/scripts.js"></script>
+        <script src="/mini-project-2017/scripts/script_.js"></script>
+
         <script type="text/javascript" src="/mini-project-2017/scripts/rangeslider.min.js"></script>
 
 </head>
@@ -92,6 +115,10 @@
             show_verify();
         else if ($caller == 3)
             show_item($values[1]);
+        else if ($caller == 4)
+            show_index($link, $_SESSION['username_']);
+        else if ($caller == 5)
+            show_profile($link, $_SESSION['username_']);
         else
             echo 'Not Found';
 
