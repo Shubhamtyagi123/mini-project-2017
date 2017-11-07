@@ -10,18 +10,27 @@
 		<div class="container" style="min-height: 100vh">
 			<form id='file_form' action="">
 			<input type="file" name="file_inp">
-			<button class="btn" id="btn_file_inp"></button>
+			<button class="btn" id="btn_file_inp">Submit</button>
 			</form>
 		</div>
 
 		<script type="text/javascript">
 			$('#file_form').on('submit', function(e) {
 				e.preventDefault();
-
-				/*$.ajax({
+				var fileData = new FormData(this); 
+				$.ajax({
 					type : 'POST',
+					url : '/mini-project-2017/clogs/item_bulk_upload.php',
+					data : fileData,
+					async: false,
+			        success: function (data) {
+			            alert(data)
+			        },
+			        cache: false,
+			        contentType: false,
+			        processData: false
 					
-				})*/
+				})
 			})
 		</script>
 
