@@ -115,9 +115,9 @@
             show_verify();
         else if ($caller == 3)
             show_item($values[1]);
-        else if ($caller == 4)
+        else if ($caller == 4) // check $_SESSION['username_']'s validity!
             show_index($link, $_SESSION['username_']);
-        else if ($caller == 5)
+        else if ($caller == 5) // check $_SESSION['username_']'s validity!
             show_profile($link, $_SESSION['username_']);
         else
             echo 'Not Found';

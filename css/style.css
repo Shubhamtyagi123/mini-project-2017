@@ -3,7 +3,7 @@ body {
     font-family: 'Lato', sans-serif;
     font-size: 16px;
     font-weight: 300;
-    color: #888;
+    color: #222;
     line-height: 30px;
 }
 
@@ -570,6 +570,57 @@ footer a:hover, footer a:focus {
 }
 /*------------------------------------------*/
 /*-----------------------------------------------*/
+
+
+/*---------------SIDE BAR PROFILE----------------*/
+
+/*-------------------------------------*/
+.side_tab li.active_tab {
+    border-left: 5px solid;
+    border-color : #111;
+    background: #3ebd95;
+}
+
+.side_tab li.active_tab button {
+    color : #fff;
+}
+
+.side_tab li.active_tab .fa-1x {
+    color : rgba(0, 0, 0, 0.87);
+}
+
+.side_tab li.active_tab:hover {
+    background: rgb(83, 197, 161);
+}
+
+.tab_list button {
+    margin : 0;
+    background-color : transparent;
+    border : none;
+    outline : none;
+    padding : 10px;
+    font-weight : bolder;
+}
+
+.fa-1x {
+    padding : 6px;
+}
+
+.content_ {
+    //display : none;
+    padding-left : 50px;
+    text-align : center;
+}
+.side_tab {
+   // width: 20%;
+    font-size : 1.3em;
+}
+.side_tab ul {
+    list-style : none;
+}
+
+/*----------------------------------------*/
+
 /*------------------FOOTER STYLES----------------*/
 #myFooter {
     background-color: rgb(86, 189, 156);

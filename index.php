@@ -1,3 +1,4 @@
+<?php session_start(); require_once('clogs/db_connect.php'); require_once('clogs/functions.php');?>
 <!DOCTYPE html>
 <html>
 
@@ -8,6 +9,8 @@
     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="/mini-project-2017/css/style_front_page.css">
+            <link rel="stylesheet" href="/mini-project-2017/css/style.css">
+
     <style type="text/css">
       body {
         background: none;

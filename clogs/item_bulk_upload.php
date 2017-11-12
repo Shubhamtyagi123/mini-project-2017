@@ -13,14 +13,10 @@
     }
     else {
       $file_name = rand(1,1000).$_FILES['file_inp']['name'];
-      echo $file_name;
       if(move_uploaded_file($_FILES['file_inp']['tmp_name'], $d_folder.$file_name))
         $file = $d_folder.$file_name;
         
     }
-
-
-
   }
   else{
     echo "No File Recieved!";
@@ -32,7 +28,6 @@
 
   $csv = array_map('str_getcsv', file($file));
   $col_size = sizeof($csv[0]);
-  echo "col_num = ".$col_size.'<br>';
   $line_num = 1;
   $img_counter = 0;
   $num_counter = 0;

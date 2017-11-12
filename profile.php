@@ -2,19 +2,34 @@
 
 	function show_profile($username) {
 		?>
+<script type="text/javascript">
+		 window.onload = function() {
+                  document.getElementById('open_default').click();
+   }
+   </script>
 		<style type="text/css">
 			body {
 				background: none;
 			}
 		</style>
-		<div class="container" style="min-height: 100vh">
-			<form id='file_form' action="">
-			<input type="file" name="file_inp">
-			<button class="btn" id="btn_file_inp">Submit</button>
-			</form>
-		</div>
-
 		<script type="text/javascript">
+			function f(e, id_) {
+
+		       var x = document.getElementsByClassName('content_');
+		       var y = document.getElementsByClassName("tab_link");
+
+		       for (let i = 0 ; i < x.length ; i++)
+		            x[i].style.display = "none";
+
+		       for (let i = 0 ; i < y.length ; i++)
+		            y[i].className = y[i].className.replace(" active_tab","");
+
+		        document.getElementById(id_).style.display = "block";
+		        e.currentTarget.parentElement.className += " active_tab";
+
+		    }
+
+
 			$('#file_form').on('submit', function(e) {
 				e.preventDefault();
 				var fileData = new FormData(this); 
@@ -34,6 +49,64 @@
 			})
 		</script>
 
+		<div class="container" style="min-height: 100vh">
+			<form id='file_form' action="">
+			<input type="file" name="file_inp">
+			<button class="btn" id="btn_file_inp">Submit</button>
+			</form>
+
+			<div class="row">
+				<div class="col-md-3 text-left">
+					<div class="side_tab">
+                        <ul class="tab_list">
+                            <li class="tab_link active_tab">
+                                <button onclick="f(event,'p_g')" id="open_default">
+                                    <i class="fa fa-user fa-1x" aria-hidden="true"></i>
+                                    Profile
+                    			 </button>
+                            </li>
+                            <li class="tab_link">
+                                <button onclick="f(event,'b_h')">
+                                    <i class="fa fa-upload fa-1x" aria-hidden="true"></i>
+                                    Media
+                                </button>
+                            </li>
+                            
+                            <li class="tab_link">
+                                <button onclick="f(event,'stat')">
+                                    <i class="fa fa-shield fa-1x" aria-hidden="true"></i>
+                                    Services
+                                </button>
+                            </li>
+                            <li class="tab_link">
+                                <button onclick="f(event,'r')">
+                                    <i class="fa fa-star fa-1x" aria-hidden="true"></i>
+                                    Reviews
+                                </button>
+                            </li>
+                        </ul>
+                        <script type="text/javascript">
+                            function log_me_out() {
+                                window.location = "/clogs/logout.php";
+                            }
+                            function edit_profile() {
+                                window.location = '';
+                            }
+                        </script>
+                    </div>
+				</div>
+				<div class="col-md-5">
+					<div class="content">
+					    <div class="content_" id="p_g">asda</div>
+					    <div class="content_" id="stat">asds</div>
+					    <div class="content_" id="r">asdd</div>
+					    <div class="content_" id="b_h">asdf</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		
 		<?php
 	}
 
