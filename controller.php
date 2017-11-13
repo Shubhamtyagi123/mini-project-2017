@@ -86,6 +86,10 @@
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
         <link rel="stylesheet" href="/mini-project-2017/css/form-elements.css">
         <link rel="stylesheet" href="/mini-project-2017/css/style_front_page.css">
+        <link rel="stylesheet" href="/mini-project-2017/css/profile-styles.css">
+        <link rel="stylesheet" type="text/css" href="/mini-project-2017/css/normalize.css" />
+        <link rel="stylesheet" type="text/css" href="/mini-project-2017/css/component.css" />
+
 
         <link rel="stylesheet" href="/mini-project-2017/css/style.css">
         <link rel="stylesheet" type="text/css" href="/mini-project-2017/css/rangeslider.css">
@@ -99,6 +103,8 @@
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <script src="/mini-project-2017/scripts/scripts.js"></script>
         <script src="/mini-project-2017/scripts/script_.js"></script>
+                <script src="/mini-project-2017/scripts/custom-file-input.js"></script>
+
 
         <script type="text/javascript" src="/mini-project-2017/scripts/rangeslider.min.js"></script>
 

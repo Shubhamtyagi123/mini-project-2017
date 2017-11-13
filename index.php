@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="/mini-project-2017/css/style_front_page.css">
             <link rel="stylesheet" href="/mini-project-2017/css/style.css">
+            <link rel="stylesheet" type="text/css" href="/mini-project-2017/css/profile-styles.css">
 
     <style type="text/css">
       body {
