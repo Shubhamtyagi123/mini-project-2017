@@ -9,7 +9,6 @@
 {
 
 	var inputs = document.getElementsByClassName('inputfile');
-	console.log(inputs);
 	Array.prototype.forEach.call( inputs, function( input )
 	{
 		var label	 = input.nextElementSibling,

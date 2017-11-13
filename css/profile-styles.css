@@ -2,9 +2,7 @@
     display : none;
 }
 
-nav {
-    margin-bottom : 40px !important;
-}
+
 .cover-div {
     display : inline-flex;
     flex-wrap : nowrap;
