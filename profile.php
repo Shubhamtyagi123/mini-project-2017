@@ -113,6 +113,7 @@
 
 
                 <div class="bulk-item-upload">
+                  <div class="text-right"><i class="fa fa-times" aria-hidden="true"></i></div>
                   <div class="row">
                     <div class="col-md-3" style="padding : 0px;">
                     <div class="box">
