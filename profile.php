@@ -189,25 +189,25 @@
                       <div class="col-md-12">
                       <label for="image">Item Images</label><br>
                       </div>
-                      <div class="col-md-3">
+                      <div class="col-md-3 col-xs-6">
                         <input type="file" name="itm_img[]" id="id_1" style="display:none;">
                         <div class="img-hold">
                           <i class="fa fa-upload fa-2x" onclick="img_inpt('id_1')"></i>
                         </div>
                       </div>
-                      <div class="col-md-3">
+                      <div class="col-md-3 col-xs-6">
                         <input type="file" name="itm_img[]" id="id_2" style="display:none;">
                         <div class="img-hold">
                           <i class="fa fa-upload fa-2x" onclick="img_inpt('id_2')"></i>
                         </div>
                       </div>
-                      <div class="col-md-3">
+                      <div class="col-md-3 col-xs-6 pad-mob">
                         <input type="file" name="itm_img[]" id="id_3" style="display:none;">
                         <div class="img-hold">
                           <i class="fa fa-upload fa-2x" onclick="img_inpt('id_3')"></i>
                         </div>
                       </div>
-                      <div class="col-md-3">
+                      <div class="col-md-3 col-xs-6 pad-mob">
                         <input type="file" name="itm_img[]" id="id_4" style="display:none;">
                         <div class="img-hold">
                           <i class="fa fa-upload fa-2x" onclick="img_inpt('id_4')"></i>
