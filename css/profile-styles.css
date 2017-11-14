@@ -18,9 +18,7 @@
     padding : 0px; 
 }
 .left-img {
-    padding-right : 60px;
-    padding-left : 50px;
-   
+    padding-right : 60px;   
 }
 .right-img {
     padding-left: 60px;
@@ -43,7 +41,18 @@
     text-align : left;
 }
 
+.img-hold a {
+    color : #555;
+}
+.img-hold {
+    height :110px;
+    width : 120px;
+    text-align : center;
+    background : #ddd;
+    border-radius : 5px;
+    padding-top : 35px;
 
+}
 
 
 

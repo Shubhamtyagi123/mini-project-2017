@@ -101,19 +101,154 @@
                         </script>
                     </div>
 				</div>
-				<div class="col-md-7">
+				<div class="col-md-8">
 					<div class="content">
 					    <div class="content_" id="p_g">asda</div>
               <div class="content_" id="r">asdd</div>
 					    <div class="content_" id="new_itms">
 
                 <div class="single-item-upload">
-                  
+                  <div class="text-right"><a href="#" style="color: #000"><i class="fa fa-times close_btn" id="close_btn" aria-hidden="true"></i></a></div>
+<!-- 
+                  Name, ..
+                  Main-Image,
+                  Image-1,
+                  Image-2,Image-3,
+                  Category, ..
+                  Starting-Price,
+                  Max-Price,
+                  Bid-Interval,
+                  Auction-Start-Date,
+                  Auction-time,
+                  Auction-Duration,
+                  Description -->
+
+                  <form action="" method="" id="itm_form" class="text-left">
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="name">Item Name</label><br>
+                          <input type="text" class="form-control" required="required" placeholder="eg- Apple iPhone 6 Gold">
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="name">Category</label><br>
+                          <select class="select-tag form-control">
+                            <option value="xx-1">Electronics</option>
+                            <option value="xx-2">Furniture</option>
+                            <option value="xx-3">Books</option>
+                            <option value="xx-4">Logia</option>
+                          </select>
+                        </div>                      
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="date">Auction Date</label><br>
+                          <input type="text" name="auct_date" class="datepicker form-control">
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                          <div class="form-group">
+                          <label for="time">Auction Time</label><br>
+                          <input type="text" name="auct_date" class="timepicker">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-3">
+                        <div class="form-group">
+                          <label for="integer">Auction Days</label><br>
+                          <input type="number" name="auct_dur" class="form-control" required="required">
+                        </div>
+                      </div>
+                      <div class="col-md-3">
+                        <div class="form-group">
+                          <label for="integer">Starting Bid (<i class="fa fa-inr"></i>)</label><br>
+                          <input type="number" name="auct_starting_price" class="form-control" required="required">
+                        </div>
+                      </div>
+                      <div class="col-md-3">
+                        <div class="form-group">
+                          <label for="integer">Bid Interval (<i class="fa fa-inr"></i>)</label><br>
+                          <input type="number" name="auct_bid_interval" class="form-control" required="required">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <label for="text">Item Description</label>
+                          <textarea type="text" name="itm_desc" class="form-control"></textarea>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-12">
+                      <label for="image">Item Images</label><br>
+                      </div>
+                      <div class="col-md-3">
+                        <input type="file" name="itm_img[]" id="id_1" style="display:none;">
+                        <div class="img-hold">
+                          <i class="fa fa-upload fa-2x" onclick="img_inpt('id_1')"></i>
+                        </div>
+                      </div>
+                      <div class="col-md-3">
+                        <input type="file" name="itm_img[]" id="id_2" style="display:none;">
+                        <div class="img-hold">
+                          <i class="fa fa-upload fa-2x" onclick="img_inpt('id_2')"></i>
+                        </div>
+                      </div>
+                      <div class="col-md-3">
+                        <input type="file" name="itm_img[]" id="id_3" style="display:none;">
+                        <div class="img-hold">
+                          <i class="fa fa-upload fa-2x" onclick="img_inpt('id_3')"></i>
+                        </div>
+                      </div>
+                      <div class="col-md-3">
+                        <input type="file" name="itm_img[]" id="id_4" style="display:none;">
+                        <div class="img-hold">
+                          <i class="fa fa-upload fa-2x" onclick="img_inpt('id_4')"></i>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group"><br>
+                          <input type="submit" name="itm_submit" class="btn" value="Save Item" style="background: #3ebd95;"> 
+                          </div>
+                      </div>
+                    </div>
+                  </form>
                 </div>
+
+                <script type="text/javascript">
+                  $('#itm_form').on('submit', function(e) {
+
+                    e.preventDefault();
+                    $.ajax({
+                      type : 'POST',
+                      url : '/mini-project-2017/clogs/save_item.php',
+                      cache : false,
+                      processData : false,
+                      contentType: false,
+                      beforeSend : function() {},
+                      success : function(res) {
+                        alert(res);
+                      },
+                      error : function(a,b,c) {
+                        alert('Could not connect to the server!');
+                      },
+                      complete : function(res) {}
+                    })
+                  })
+                </script>
 
 
                 <div class="bulk-item-upload">
-                  <div class="text-right"><i class="fa fa-times" aria-hidden="true"></i></div>
+                  <div class="text-right"><a href="#" style="color: #000"><i class="fa fa-times close_btn" id="close_btn" aria-hidden="true"></i></a></div>
                   <div class="row">
                     <div class="col-md-3" style="padding : 0px;">
                     <div class="box">
@@ -123,7 +258,7 @@
                   </div>
                   <div class="col-md-9 text-left">
                     <div class="heading">
-                      <h3 style="margin : 0px;">Rules for the CSV Files<h3>
+                      <h3 style="margin : 0px;">Rules for the CSV File<h3>
                     </div>
                     <div class="small-border"></div>
                   </div>
@@ -165,6 +300,21 @@
         $('#new_itms_wrap').css('display', 'none');
         $('.single-item-upload').css('display', 'block');
       })
+       $('.close_btn').on('click', function(e) {
+
+        e.preventDefault();
+        $('.bulk-item-upload').css('display', 'none');
+        $('.single-item-upload').css('display', 'none');
+        $('#new_itms_wrap').css('display', 'block');
+       })
+
+       $('.datepicker').pickadate();
+       $('.timepicker').pickatime();
+
+       function img_inpt(id) {
+        console.log(id);
+        $("#"+id).click();
+       }
     </script>
 
 		

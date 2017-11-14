@@ -88,6 +88,11 @@
         <link rel="stylesheet" href="/mini-project-2017/css/style_front_page.css">
         <link rel="stylesheet" type="text/css" href="/mini-project-2017/css/normalize.css" />
         <link rel="stylesheet" type="text/css" href="/mini-project-2017/css/component.css" />
+        <link rel="stylesheet" type="text/css" href="/mini-project-2017/css/classic.css" />
+        <link rel="stylesheet" type="text/css" href="/mini-project-2017/css/rtl.css" />
+        <link rel="stylesheet" type="text/css" href="/mini-project-2017/css/classic.date.css" />
+        <link rel="stylesheet" type="text/css" href="/mini-project-2017/css/classic.time.css" />
+
         
         <link rel="stylesheet" href="/mini-project-2017/css/profile-styles.css">
 
@@ -103,6 +108,12 @@
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <script src="/mini-project-2017/scripts/scripts.js"></script>
         <script src="/mini-project-2017/scripts/script_.js"></script>
+         <script src="/mini-project-2017/scripts/legacy.js"></script>
+        <script src="/mini-project-2017/scripts/picker.js"></script>
+        <script src="/mini-project-2017/scripts/picker.time.js"></script>
+        <script src="/mini-project-2017/scripts/picker.date.js"></script>
+
+
 
 
         <script type="text/javascript" src="/mini-project-2017/scripts/rangeslider.min.js"></script>
@@ -131,6 +142,6 @@
         include('site_footer.php');
     ?>
         <script src="/mini-project-2017/scripts/custom-file-input.js"></script>
-
+        
 </body>
 </html>
