@@ -9,6 +9,7 @@
 
 
 	$user_prefix = "AUCBAY";
+	$itm_prefix = "GEU-";
 	$default_email_sign = 0;
 
 

@@ -26,9 +26,21 @@
                 <ul class="nav navbar-nav navbar-right">
                   <li><a href="@">Welcome <?=get_user_name($link, $_SESSION['username_'])?></a></li>
                   <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-bell" aria-hidden="true"></i></a>
+                    <ul class="dropdown-menu">
+                      <li><a href="/mini-project-2017/user/profile"><i class="fa fa-user-o"></i> Profile</a></li>
+                      <li><a href="#"><i class="fa fa-history" aria-hidden="true"></i> History</a></li>
+                      <li><a href="/mini-project-2017/clogs/logout.php"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a></li>
+                      <li role="separator" class="divider"></li>
+                      <li class="dropdown-header">Nav header</li>
+                      <li><a href="#">Separated link</a></li>
+                      <li><a href="#">One more separated link</a></li>
+                    </ul>
+                  </li>
+                  <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                      <li><a href="#"><i class="fa fa-user-o"></i> Profile</a></li>
+                      <li><a href="/mini-project-2017/user/profile"><i class="fa fa-user-o"></i> Profile</a></li>
                       <li><a href="#"><i class="fa fa-history" aria-hidden="true"></i> History</a></li>
                       <li><a href="/mini-project-2017/clogs/logout.php"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a></li>
                       <li role="separator" class="divider"></li>

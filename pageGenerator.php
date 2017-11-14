@@ -7,7 +7,6 @@
 		<div class="top-content">
             <div class="inner-bg" style="padding : 0px;">
                 <div class="container">
-                    
                     <div class="row col-md-offset-1 ">
                         <div class="col-sm-5">
                             <div class="form-box">
@@ -284,7 +283,7 @@
               <p>Product Info</p>
               <div class="small-border"></div>
             </div>
-              <div class="i-info">
+              <div class="i-info text-left">
                 <div class="li-list">Auction ID : <span class="num-info">AUCBAY-2178</span></div>
                 <div class="li-list">Product ID : <span class="num-info">AUCBAYITM-221378</span></div>
                 <div class="li-list">Auction Start : <span class="num-info">28-Oct-2017</span></div>

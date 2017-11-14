@@ -3,7 +3,7 @@ body {
     font-family: 'Lato', sans-serif;
     font-size: 16px;
     font-weight: 300;
-    color: #888;
+    color: #222;
     line-height: 30px;
 }
 
@@ -438,6 +438,7 @@ footer a:hover, footer a:focus {
 }
 
 .user-div {
+    width: 100%;
     padding-top : 30px;
     display : inline-flex;
     flex-wrap : nowrap;
@@ -570,6 +571,57 @@ footer a:hover, footer a:focus {
 }
 /*------------------------------------------*/
 /*-----------------------------------------------*/
+
+
+/*---------------SIDE BAR PROFILE----------------*/
+
+/*-------------------------------------*/
+.side_tab li.active_tab {
+    border-left: 5px solid;
+    border-color : #111;
+    background: #3ebd95;
+}
+
+.side_tab li.active_tab button {
+    color : #fff;
+}
+
+.side_tab li.active_tab .fa-1x {
+    color : rgba(0, 0, 0, 0.87);
+}
+
+.side_tab li.active_tab:hover {
+    background: rgb(83, 197, 161);
+}
+
+.tab_list button {
+    margin : 0;
+    background-color : transparent;
+    border : none;
+    outline : none;
+    padding : 10px;
+    font-weight : bolder;
+}
+
+.fa-1x {
+    padding : 6px;
+}
+
+.content_ {
+    //display : none;
+    padding-left : 50px;
+    text-align : center;
+}
+.side_tab {
+   // width: 20%;
+    font-size : 1.3em;
+}
+.side_tab ul {
+    list-style : none;
+}
+
+/*----------------------------------------*/
+
 /*------------------FOOTER STYLES----------------*/
 #myFooter {
     background-color: rgb(86, 189, 156);
@@ -753,5 +805,132 @@ ul.dropdown-menu.show {
 @media (max-width: 415px) {
     h1, h2 {
         font-size: 32px;
+    }
+}
+@media screen and (max-width : 450px) {
+    #welcome_mssg {
+        float : none !important;
+        padding-top : 20px !important;
+        /* margin-top : 10px !important; */
+    }
+
+    .profile_pic img {
+        max-width: 190px;
+        max-height : 190px;
+        min-width: 190px;
+        min-height: 190px;
+    }
+
+    .left_ {
+        width : 60%;
+        margin : auto !important;
+        max-height: inherit;
+    }
+
+    .side_button {
+        display : block;
+        position : relative;
+        width : 100%;
+        height : 20px;
+        font-size : .8em;
+        font-weight : 100;
+    }
+
+    .middle_ {
+        position : relative !important;
+        width : 90%;
+        margin : auto;
+        text-align : center;
+    }
+
+    .middle_ p {
+        position : relative;
+        bottom : 0px;
+        color : #000;
+    }
+
+    .child_div {
+        left : 0px;
+        width : 100%;
+    }
+
+    .right_ {
+        width : 90%;
+        text-align : center;
+        margin : auto;
+    }
+
+    .right_ ul {
+        position : relative;
+        padding-left: 0px;
+        bottom : 0;
+    }
+
+    .right_ ul li {
+        display : inline-block;
+        padding : 5px;
+    }
+
+    .badge_area {
+        display : none;
+    }
+
+    .lower_body {
+        margin-top : 180px
+    }
+
+    .side_tab {
+        width : 100%;
+    }
+
+    .tab_list li button {
+        padding : 0px;
+    }
+
+    .tab_list li.active_tab {
+        border : 1px solid;
+        border-color : green;
+        box-shadow : .2px .4px .2px .1px green;
+    }
+
+    .side_tab ul li {
+        display : inline-block;
+        padding-left : 10px;
+        padding-right : 20px;
+        padding-top : 5px;
+        padding-bottom : 5px;
+        margin-top : 7px;
+        font-size : .8em;
+        background-color : #fff;
+        border-radius : 7px;
+        cursor : pointer;
+        border : 1px solid;
+        border-color : green;
+        box-shadow : .2px .4px .2px .1px green;
+    }
+
+    .side_tab ul {
+        padding-left : 0px;
+        text-align : center;
+    }
+
+    .inpt_custom {
+        font-size : 1.2em;
+        border-color : rgba(0, 0, 0, 0.65);
+        border-bottom : 1.5px solid;
+        width: 90%;
+    }
+
+    .long_inpt, .width_eq, .long_long_input {
+        width : 90% ;
+    }
+
+    .rest_of_the > .inpt_custom {
+        width : 50% !important;
+    }
+
+    .content_ , .content_tab {
+        width : 100%;
+        padding-left : 0px;
     }
 }
