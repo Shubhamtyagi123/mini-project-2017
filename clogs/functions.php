@@ -78,4 +78,35 @@
 
 		return null;
 	}
+
+	function get_active_items($link, $cat, $today) {
+
+		global $items;
+		$q = "SELECT * FROM $items WHERE auction_date < '$today' AND category = '$cat' LIMIT 3";
+		$row = mysqli_query($link, $q);
+		$num = mysqli_num_rows($row);
+
+		if ($num !=0 )
+			return $row;
+		else
+			return $q;
+	}
+
+	function addDayswithdate($date,$days){
+
+    $date = strtotime("+".$days." days", strtotime($date));
+    return  date("Y-m-d H:i", $date);
+
+}
+	function get_item($link, $item_id) {
+		global $items;
+		$q = "SELECT * FROM $items WHERE id = '$item_id'";
+		$row = mysqli_query($link, $q);
+		if ($row && (mysqli_num_rows($row) != 0)){
+			$x = mysqli_fetch_object($row);
+			return $x;
+		}
+
+		return null;
+	}
 ?>

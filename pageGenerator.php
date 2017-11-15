@@ -213,7 +213,9 @@
 
 
 
-  function show_item($item_url_name) {
+  function show_item($link, $item_id) {
+
+      $item = get_item($link, $item_id);
     ?>
 
     <style type="text/css">
