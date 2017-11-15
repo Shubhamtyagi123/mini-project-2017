@@ -2,31 +2,34 @@
     display : none;
     padding: 20px;
     box-shadow: 1px 1px 1px 1px #ddd;
-
 }
-
 
 .cover-div {
     display : inline-flex;
     flex-wrap : nowrap;
 }
+
 #right-border {
-   border-right : 1px solid;
-   border-color : #bbb;
+    border-right : 1px solid;
+    border-color : #bbb;
     max-height : 120px;
     margin-top : 40px;
-    padding : 0px; 
+    padding : 0px;
 }
+
 .left-img {
-    padding-right : 60px;   
+    padding-right : 60px;
 }
+
 .right-img {
     padding-left: 60px;
 }
+
 .cover-div img {
     max-width : 200px;
     max-height : 200px;
 }
+
 #new_itms {
     /* padding-top : 40px; */
 }
@@ -44,48 +47,57 @@
 .img-hold a {
     color : #555;
 }
+
 .img-hold {
-    height :110px;
+    height : 110px;
     width : 120px;
     text-align : center;
     background : #ddd;
     border-radius : 5px;
     padding-top : 35px;
-
+    background-size : cover;
+    background-position : center;
+    background-repeat : no-repeat;
 }
-
-
-
-
 
 @media screen and (max-width : 450px) {
-    nav{
+    nav {
         margin-bottom : 10px !important;
     }
+
     .right-img,.left-img {
-    padding : 0px;
-    margin : 0px;
-}
-.right-img {
-    padding-left : 15px;
-}
-.cover-div img {
-    max-width : 150px;
-    max-height : 150px;
-}
-#right-border {
-   border-right : 1px solid;
-   border-color : #bbb;
-    max-height : 90px;
-    margin-top : 30px;
-    padding : 0px; 
-}
-.text- {
-    max-width : 150px;
-    font-size : 1.44em;
-    font-weight : 100;
-}
-.box {
-    text-align : center;
-}
+        padding : 0px;
+        margin : 0px;
+    }
+
+    .pad-mob {
+        margin-top : 10px;
+    }
+
+    .right-img {
+        padding-left : 15px;
+    }
+
+    .cover-div img {
+        max-width : 150px;
+        max-height : 150px;
+    }
+
+    #right-border {
+        border-right : 1px solid;
+        border-color : #bbb;
+        max-height : 90px;
+        margin-top : 30px;
+        padding : 0px;
+    }
+
+    .text- {
+        max-width : 150px;
+        font-size : 1.44em;
+        font-weight : 100;
+    }
+
+    .box {
+        text-align : center;
+    }
 }

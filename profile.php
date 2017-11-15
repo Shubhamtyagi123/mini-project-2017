@@ -35,8 +35,26 @@
 
 		    }
 
+        function file_upload() {
+          var fileData = new FormData($('#bulk_file_upload')[0]); 
+          $.ajax({
+            type : 'POST',
+            url : '/mini-project-2017/clogs/item_bulk_upload.php',
+            data : fileData,
+            async: false,
+            success: function (data) {
+                alert(data)
+            },
+            cache: false,
+            contentType: false,
+            processData: false
+            
+          })  
+        }
 
 			$('#file_form').on('submit', function(e) {
+
+
 				e.preventDefault();
 				var fileData = new FormData(this); 
 				$.ajax({
@@ -104,7 +122,9 @@
 				<div class="col-md-8">
 					<div class="content">
 					    <div class="content_" id="p_g">asda</div>
-              <div class="content_" id="r">asdd</div>
+              <div class="content_" id="r">
+                
+              </div>
 					    <div class="content_" id="new_itms">
 
                 <div class="single-item-upload">
@@ -123,18 +143,18 @@
                   Auction-Duration,
                   Description -->
 
-                  <form action="" method="" id="itm_form" class="text-left">
+                  <form id="itm_form" class="text-left">
                     <div class="row">
                       <div class="col-md-6">
                         <div class="form-group">
                           <label for="name">Item Name</label><br>
-                          <input type="text" class="form-control" required="required" placeholder="eg- Apple iPhone 6 Gold">
+                          <input type="text" name="itm_name" class="form-control" required="required" placeholder="eg- Apple iPhone 6 Gold">
                         </div>
                       </div>
                       <div class="col-md-6">
                         <div class="form-group">
                           <label for="name">Category</label><br>
-                          <select class="select-tag form-control">
+                          <select class="select-tag form-control" name="itm_cat">
                             <option value="xx-1">Electronics</option>
                             <option value="xx-2">Furniture</option>
                             <option value="xx-3">Books</option>
@@ -153,7 +173,7 @@
                       <div class="col-md-6">
                           <div class="form-group">
                           <label for="time">Auction Time</label><br>
-                          <input type="text" name="auct_date" class="timepicker">
+                          <input type="text" name="auct_time" class="timepicker">
                         </div>
                       </div>
                     </div>
@@ -189,30 +209,36 @@
                       <div class="col-md-12">
                       <label for="image">Item Images</label><br>
                       </div>
-                      <div class="col-md-3 col-xs-6">
-                        <input type="file" name="itm_img[]" id="id_1" style="display:none;">
-                        <div class="img-hold">
+                      <div class="col-md-3 col-xs-6 col-sm-3">
+                        <input type="file" name="itm_img[]" id="id_1" onchange="loadFile(event, 'img-hold-0')" style="display:none;">
+                        <div class="img-hold" id="img-hold-0">
                           <i class="fa fa-upload fa-2x" onclick="img_inpt('id_1')"></i>
                         </div>
                       </div>
-                      <div class="col-md-3 col-xs-6">
-                        <input type="file" name="itm_img[]" id="id_2" style="display:none;">
-                        <div class="img-hold">
+                      <div class="col-md-3 col-xs-6 col-sm-3">
+                        <input type="file" name="itm_img[]" id="id_2" onchange="loadFile(event, 'img-hold-1')" style="display:none;">
+                        <div class="img-hold" id='img-hold-1'>
                           <i class="fa fa-upload fa-2x" onclick="img_inpt('id_2')"></i>
                         </div>
                       </div>
-                      <div class="col-md-3 col-xs-6 pad-mob">
-                        <input type="file" name="itm_img[]" id="id_3" style="display:none;">
-                        <div class="img-hold">
+                      <div class="col-md-3 col-xs-6 pad-mob col-sm-3">
+                        <input type="file" name="itm_img[]" id="id_3" onchange="loadFile(event, 'img-hold-2')" style="display:none;">
+                        <div class="img-hold" id="img-hold-2">
                           <i class="fa fa-upload fa-2x" onclick="img_inpt('id_3')"></i>
                         </div>
                       </div>
-                      <div class="col-md-3 col-xs-6 pad-mob">
-                        <input type="file" name="itm_img[]" id="id_4" style="display:none;">
-                        <div class="img-hold">
+                      <div class="col-md-3 col-xs-6 pad-mob col-sm-3">
+                        <input type="file" name="itm_img[]" id="id_4" onchange="loadFile(event, 'img-hold-3')" style="display:none;">
+                        <div class="img-hold" id="img-hold-3">
                           <i class="fa fa-upload fa-2x" onclick="img_inpt('id_4')"></i>
                         </div>
                       </div>
+                      <div class="col-md-12">
+                        <div class="di">
+                        <strong>*Note</strong> We recommend that you upload atleast 4 item images.
+                      </div>
+                      </div>
+                      
                     </div>
                     <div class="row">
                       <div class="col-md-12">
@@ -225,18 +251,29 @@
                 </div>
 
                 <script type="text/javascript">
+
+                  var loadFile = function(event, id) {
+
+                      var output = document.getElementById(id);
+                      output.style.backgroundImage ="url("+ URL.createObjectURL(event.target.files[0])+")";
+                      console.log(output.style.backgroundImage);
+                  };
+
                   $('#itm_form').on('submit', function(e) {
 
                     e.preventDefault();
+                    var data_ = new FormData($('#itm_form')[0]);
+                    console.log(data_);
                     $.ajax({
                       type : 'POST',
                       url : '/mini-project-2017/clogs/save_item.php',
+                      data : data_,
                       cache : false,
                       processData : false,
                       contentType: false,
                       beforeSend : function() {},
                       success : function(res) {
-                        alert(res);
+                            alert(res);        
                       },
                       error : function(a,b,c) {
                         alert('Could not connect to the server!');
@@ -252,8 +289,10 @@
                   <div class="row">
                     <div class="col-md-3" style="padding : 0px;">
                     <div class="box">
-                      <input type="file" name="file-5[]" id="file-5" class="inputfile inputfile-4" data-multiple-caption="{count} files selected" multiple />
+                      <form action="" id="bulk_file_upload">
+                      <input type="file" name="file_inp" id="file-5" class="inputfile inputfile-4" data-multiple-caption="{count} files selected" multiple onchange="file_upload()" />
                       <label for="file-5"><figure><svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17"><path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"/></svg></figure> <span>Choose a file&hellip;</span></label>
+                      </form>
                     </div>
                   </div>
                   <div class="col-md-9 text-left">
@@ -284,6 +323,17 @@
 					    <div class="content_" id="b_h">asdf</div>
 					</div>
 				</div>
+        <!-- <div class="col-md-2">
+          <div class="item-panel-side">
+            <div class="img-div"></div>
+            <div class="info-div">
+              <div class="item-name-side">Notebook X503, Samsung</div>
+              <div class="bid-btn-side">
+                <a href="#" class="btn btn-green">Bid Now</a>
+              </div>
+            </div>
+          </div>
+        </div> -->
 			</div>
 		</div>
 
@@ -308,8 +358,15 @@
         $('#new_itms_wrap').css('display', 'block');
        })
 
-       $('.datepicker').pickadate();
-       $('.timepicker').pickatime();
+       $('.datepicker').pickadate({
+          formatSubmit: 'yyyy-mm-dd',
+          hiddenName: true
+
+       });
+       $('.timepicker').pickatime({
+        formatSubmit: 'HH:i',
+        hiddenName: true
+        });
 
        function img_inpt(id) {
         console.log(id);
