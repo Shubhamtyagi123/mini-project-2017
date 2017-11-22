@@ -14,7 +14,7 @@
           <div class="img-header">
           <img src="/mini-project-2017/img/the_hammer.png" class="header-img">
         </div>
-          <a class="navbar-brand" href="#">Auction Bay</a>
+          <a class="navbar-brand" href="/mini-project-2017/">Auction Bay</a>
         </div>
       </div>
         <div id="navbar" class="navbar-collapse collapse">
@@ -24,29 +24,57 @@
                 ?>
 
                 <ul class="nav navbar-nav navbar-right">
-                  <li><a href="@">Welcome <?=get_user_name($link, $_SESSION['username_'])?></a></li>
+                  <li><a href="/mini-project-2017/user/">Welcome<?=get_user_name($link, $_SESSION['username_'])?> <span class="badge"><?=get_bids_left($link,get_user_id($link, $_SESSION['username_']))?></span></a></li>
                   <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-bell" aria-hidden="true"></i></a>
                     <ul class="dropdown-menu">
-                      <li><a href="/mini-project-2017/user/profile"><i class="fa fa-user-o"></i> Profile</a></li>
-                      <li><a href="#"><i class="fa fa-history" aria-hidden="true"></i> History</a></li>
-                      <li><a href="/mini-project-2017/clogs/logout.php"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a></li>
-                      <li role="separator" class="divider"></li>
-                      <li class="dropdown-header">Nav header</li>
-                      <li><a href="#">Separated link</a></li>
-                      <li><a href="#">One more separated link</a></li>
+                      <?php
+                        $user_id = get_user_id($link, $_SESSION['username_']);
+                        $winners = get_all_winners($link);
+                        if ($winners != null) {
+                          $x = 0;
+                          while ($winner = mysqli_fetch_object($winners)) {
+                          
+                            if ($winner->user_id == $user_id && ($winner->is_payment_done == 0)) {
+                              $item = get_item($link, $winner->item_id);
+                              ?>
+                              <li>
+                                <div class="notification">
+                                  <div class="notify-item-name">Congratulations! You won the auction for <?=ucwords($item->name)?></div>
+                                  <div class="pay-btn text-right">
+                                      <a href="" class="btn-sm btn-success">Pay Now</a>
+                                  </div>
+                                </div>
+                              </li>
+                              <li>
+                      
+                              <?php
+                            }
+                            else
+                              $x++;
+
+                          }
+                          if ($x == mysqli_num_rows($winners))
+                            echo "<div style='width:350px'><h3>No New Notifications!</h3></div>"; 
+                        }
+                        else
+                          echo "<div style='width:350px'><h3>No New Notifications!</h3></div>";
+
+                      ?>
+                        
                     </ul>
                   </li>
                   <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="caret"></span></a>
                     <ul class="dropdown-menu">
                       <li><a href="/mini-project-2017/user/profile"><i class="fa fa-user-o"></i> Profile</a></li>
-                      <li><a href="#"><i class="fa fa-history" aria-hidden="true"></i> History</a></li>
-                      <li><a href="/mini-project-2017/clogs/logout.php"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a></li>
+<!--                       <li><a href="#"><i class="fa fa-history" aria-hidden="true"></i> History</a></li>
+                       -->                      <li><a href="/mini-project-2017/clogs/logout.php"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a></li>
                       <li role="separator" class="divider"></li>
-                      <li class="dropdown-header">Nav header</li>
-                      <li><a href="#">Separated link</a></li>
-                      <li><a href="#">One more separated link</a></li>
+                      <li class="dropdown-header">Auction Categories</li>
+                      <li><a href="/mini-project-2017/category/xx-1/">Books</a></li>
+                      <li><a href="/mini-project-2017/category/xx-2/">Mobile Phones</a></li>
+                      <li><a href="/mini-project-2017/category/xx-3/">Electronic Appliances</a></li>
                     </ul>
                   </li>
                 </ul>

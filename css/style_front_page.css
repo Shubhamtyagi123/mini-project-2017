@@ -69,6 +69,10 @@ header .header-img {
 strong {
     font-weight: 500;
 }
+#time-left {
+    font-size : 2em;
+    text-align : right;
+}
 
 
 
@@ -90,7 +94,12 @@ strong {
     margin-top: 50px;
     border-right: 1px solid #888;
 }
-
+.product-name-div a {
+    color : #555;
+}
+.product-name-div a:hover {
+    color : #000;
+}
 /*Footer content*/
 #myFooter {
     background-color: #56bd9c;
@@ -180,6 +189,10 @@ strong {
     #myFooter {
         text-align: center;
     }
+
+    #time-left {
+        text-align : center;
+    }
 }
 
 /*footer position*/
@@ -227,9 +240,13 @@ strong {
     padding: 0 0 15px 0;
     border: none;
     border-radius: 0;
-    height: 100%;
+    /* height: 100%; */
 }
-
+.product-img-div {
+    background-size : contain !important;
+    background-position : center !important;
+    background-repeat : no-repeat !important;
+}
 .thumbnail p {
     margin-top: 15px;
     color: #555;

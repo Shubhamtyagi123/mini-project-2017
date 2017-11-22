@@ -26,6 +26,7 @@
 			$auct_starting_price = clean($link, $_POST['auct_starting_price']);
 			$auct_bid_interval = clean($link, $_POST['auct_bid_interval']);
 			$itm_desc = clean($link, $_POST['itm_desc']);
+			$auct_dur = $_POST['auct_dur'];
 
 			$img0 = strtolower(pathinfo($_FILES['itm_img']['name'][0], PATHINFO_EXTENSION));
  			$img1 = strtolower(pathinfo($_FILES['itm_img']['name'][1], PATHINFO_EXTENSION));
@@ -64,15 +65,16 @@
  				$itm_id = "GEU-".rand(1,9999);
  				$user_id = get_user_id($link, $user);
  				$url_name = strtolower(preg_replace('#[ -]+#', "-", $itm_name));
+ 				$expiry_date = addDayswithdate($auct_date_time, $auct_dur);
 
  				if ($user_id != null){
 
-	 				$q = "INSERT INTO $items (id, user_id, name, category, item_desc, img, img1, img2, img3, bid_min_amt, bid_max_amt, bid_interval, item_url_name, auction_date) VALUES ('$itm_id', '$user_id', '$itm_name', '$itm_cat', '$itm_desc', '$f0', '$f1', '$f2', '$f3', '$auct_starting_price','$auct_max', '$auct_bid_interval', '$url_name', '$auct_date_time')";
+	 				$q = "INSERT INTO $items (id, user_id, name, category, item_desc, img, img1, img2, img3, bid_min_amt, bid_max_amt, bid_interval, item_url_name, auction_date, expiry_date) VALUES ('$itm_id', '$user_id', '$itm_name', '$itm_cat', '$itm_desc', '$f0', '$f1', '$f2', '$f3', '$auct_starting_price','$auct_max', '$auct_bid_interval', '$url_name', '$auct_date_time', '$expiry_date')";
 	 				if (mysqli_query($link, $q)){
-	 					echo json_encode($fp);	
+	 					echo "Item Saved Successfully!";	
 	 				} 
 	 				else
-	 					echo $q;
+	 					echo "Could not save data. Please try again!";
 
 	 				
  				}

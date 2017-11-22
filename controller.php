@@ -62,13 +62,19 @@
 
                 if ($values[1] == 'profile')
                     $caller = 5;
+                if($values[1] == 'history')
+                    $caller = 6;
             }
             else
                 header('Location: /mini-project-2017/login');
         break;
 
+        case 'category':
+            if (isset($values[1]))
+                $caller = 7;
+
         default:
-            echo $values[0];
+           
         break;
     }
     ?>
@@ -98,6 +104,10 @@
 
         <link rel="stylesheet" href="/mini-project-2017/css/style.css">
         <link rel="stylesheet" type="text/css" href="/mini-project-2017/css/rangeslider.css">
+
+        <link rel="stylesheet" type="text/css" href="/mini-project-2017/css/alertify.min.css">
+
+        <link rel="stylesheet" type="text/css" href="/mini-project-2017/css/alertify.rtl.css">
         <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
 
         <!--jQuery hai bc-->
@@ -112,6 +122,7 @@
         <script src="/mini-project-2017/scripts/picker.js"></script>
         <script src="/mini-project-2017/scripts/picker.time.js"></script>
         <script src="/mini-project-2017/scripts/picker.date.js"></script>
+        <script src="/mini-project-2017/scripts/alertify.min.js"></script>
 
 
 
@@ -134,7 +145,11 @@
         else if ($caller == 4) // check $_SESSION['username_']'s validity!
             show_index($link, $_SESSION['username_']);
         else if ($caller == 5) // check $_SESSION['username_']'s validity!
-            show_profile($link, $_SESSION['username_']);
+            show_profile($link, $_SESSION['username_'], get_user_id_($link, $_SESSION['username_']));
+        else if ($caller == 6)
+            show_history($link, get_user_id_($link, $_SESSION['username_']));
+        else if ($caller == 7)
+            show_category($link, $values[1]);
         else
             echo 'Not Found';
 

@@ -91,7 +91,7 @@ h3 {
 }
 
 img {
-    max-width: 100%;
+    /* max-width: 100%; */
 }
 
 ::-moz-selection {
@@ -354,6 +354,10 @@ footer a:hover, footer a:focus {
     border : 1px solid;
     border-color : #fff;
     border-radius: 7px;
+    cursor : pointer;
+    background-repeat : no-repeat !important;
+    background-position : center !important;
+    background-size : contain !important;
 }
 
 .sub-imgs {
@@ -371,6 +375,11 @@ footer a:hover, footer a:focus {
     border : 1px solid;
     border-color : #fff;
     border-radius: 5px;
+    cursor : pointer;
+    background-repeat : no-repeat !important;
+    background-position : center !important;
+    background-size : contain !important; 
+    
 }
 
 /*----------------------------------------*/
@@ -403,7 +412,7 @@ footer a:hover, footer a:focus {
 }
 
 #amt {
-    font-size: 3.1em;
+    font-size: 2.5em;
     padding : 5px;
 }
 
@@ -419,6 +428,7 @@ footer a:hover, footer a:focus {
     color : #615a5a;
     display : inline-flex;
     flex-wrap : nowrap;
+    min-width: 318px;
 }
 
 .product-img-div {
@@ -535,10 +545,18 @@ footer a:hover, footer a:focus {
     padding-left : 10px;
 }
 
-.bid-btn {
-    width : -webkit-fill-available;
+.bid-btn a {
+    /* width : -webkit-fill-available; */
+    font-size: 1.3em;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-decoration : none;
 }
-
+.bid-btn a:hover {
+    color : #fff;
+}
 .product-name-div {
     font-size : 1.2em;
     color : #000000;
@@ -553,7 +571,7 @@ footer a:hover, footer a:focus {
 }
 
 .bid-btn-small {
-    width : -webkit-fill-available;
+    /* width : -webkit-fill-available; */
 }
 
 .bid-amt-small {
@@ -610,7 +628,6 @@ footer a:hover, footer a:focus {
 .content_ {
     //display : none;
     padding-left : 50px;
-    text-align : center;
 }
 .side_tab {
    // width: 20%;
@@ -891,6 +908,10 @@ ul.dropdown-menu.show {
         border : 1px solid;
         border-color : green;
         box-shadow : .2px .4px .2px .1px green;
+    }
+    .thumbnail img {
+        min-height : 250px !important;
+        max-height : 250px !important;
     }
 
     .side_tab ul li {

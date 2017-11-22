@@ -6,6 +6,7 @@
 	$bids = "bids";
 	$items = "items";
 	$user_bulk_files = "bulk_upload_file_paths";
+	$item_category = "item_category";
 
 
 	$user_prefix = "AUCBAY";

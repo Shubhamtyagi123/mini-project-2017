@@ -1,6 +1,7 @@
 <?php
 
   require_once('db_connect.php');
+  require_once('functions.php');
   require_once('tables.php');
   $d_folder = "bulk_upload/";
   $file = null;
@@ -46,8 +47,8 @@
     	global $line_num, $img_counter, $num_counter, $items;
 
     	$is_dir = '^[a-zA-Z]:\\(((?![<>:"/\\|?*]).)+((?<![ .])\\)?)*$^';
-
-    	if (sizeof($a) == $col_size){
+/*      echo sizeof($a);
+*/    	if (sizeof($a) == $col_size){
 	 		// if all the fields are present, check for individual fileds' correct-ness
 
       		$a = array_combine($csv[0], $a);
@@ -66,6 +67,8 @@
       				&& !empty($a['Auction-Start-Date']) && !empty($a['Auction-Duration'])
       					&& !empty($a['Description']) && !empty($a['Category'])){
 
+/*            echo "checking errors";
+*/
       			// default max-proce to 999
       			if (empty($a['Max-Price']))
       				$a['Max-Price']= 999;
@@ -86,7 +89,9 @@
               echo "<br>".$a['Auction-time']."<br>";
               $time_counter++;
             }
-            
+
+/*            echo "error check complete";
+*/            
 			}
 			else {
       			echo "Error at line ".$line_num.". Seems like not all required fields and filled!<br>";
@@ -104,7 +109,7 @@
 			}
 
       if ($img_counter > 1){
-        echo "Some Images were not found! Please check the image paths!";
+        echo "Some Images were not found! Please check the image paths!".$line_num;
         die();
       }
 
@@ -126,6 +131,7 @@
       	}
 
       	$line_num++;
+        echo 'line number ++';
       	
     });
     array_shift($csv); # remove column header
@@ -159,25 +165,28 @@
         
         $user_id = "AUCBAY-9285-592";
         $item_id = $itm_prefix.rand(1,1000).rand(1,1000);
-        $name = $a['Name'];
-        $cat = $a['Category'];
-        $sp = $a['Starting-Price'];
-        $mp = $a['Max-Price'];
-        $bi = $a['Bid-Interval'];
-        $dur = $a['Auction-Duration'];
-        $desp = $a['Description'];
-        $url_name = strtolower(str_replace(' ', '-', $a['Name']));
+        $name = clean($link, $a['Name']);
+        $cat = clean($link, $a['Category']);
+        $sp = clean($link, $a['Starting-Price']);
+        $mp = clean($link, $a['Max-Price']);
+        $bi = clean($link, $a['Bid-Interval']);
+        $dur = clean($link, $a['Auction-Duration']);
+        $desp = clean($link, $a['Description']);
+        $url_name = clean($link, strtolower(str_replace(' ', '-', clean($link, $a['Name']))));
+        $expiry_date = addDayswithdate($date_start." ".$time_start, $dur);
 
 
-        $q = "INSERT INTO $items VALUES('$item_id', '$user_id', '$name', '$cat', '$desp', '$img_path_main', '$img_path_main_1', '$img_path_main_2', '$img_path_main_3', '$sp', '$mp', '$bi', '$url_name','$date')";
+
+        $q = "INSERT INTO $items VALUES('$item_id', '$user_id', '$name', '$cat', '$desp', '$img_path_main', '$img_path_main_1', '$img_path_main_2', '$img_path_main_3', '$sp', '$mp', '$bi', '$url_name','$date', '$dur', '$expiry_date')";
 
         if (!mysqli_query($link, $q)){
-          echo "Could not save data!";
+          echo "Sorry, could not save data. Please try again."
           die();
-        } 
+        }else $cc++; 
           
     })
-        
+        if ($cc == $col_size)
+          echo "Items uploaded succesfully!";
   
    
 ?>
