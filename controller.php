@@ -62,13 +62,19 @@
 
                 if ($values[1] == 'profile')
                     $caller = 5;
+                if($values[1] == 'history')
+                    $caller = 6;
             }
             else
                 header('Location: /mini-project-2017/login');
         break;
 
+        case 'category':
+            if (isset($values[1]))
+                $caller = 7;
+
         default:
-            echo $values[0];
+           
         break;
     }
     ?>
@@ -88,11 +94,20 @@
         <link rel="stylesheet" href="/mini-project-2017/css/style_front_page.css">
         <link rel="stylesheet" type="text/css" href="/mini-project-2017/css/normalize.css" />
         <link rel="stylesheet" type="text/css" href="/mini-project-2017/css/component.css" />
+        <link rel="stylesheet" type="text/css" href="/mini-project-2017/css/classic.css" />
+        <link rel="stylesheet" type="text/css" href="/mini-project-2017/css/rtl.css" />
+        <link rel="stylesheet" type="text/css" href="/mini-project-2017/css/classic.date.css" />
+        <link rel="stylesheet" type="text/css" href="/mini-project-2017/css/classic.time.css" />
+
         
         <link rel="stylesheet" href="/mini-project-2017/css/profile-styles.css">
 
         <link rel="stylesheet" href="/mini-project-2017/css/style.css">
         <link rel="stylesheet" type="text/css" href="/mini-project-2017/css/rangeslider.css">
+
+        <link rel="stylesheet" type="text/css" href="/mini-project-2017/css/alertify.min.css">
+
+        <link rel="stylesheet" type="text/css" href="/mini-project-2017/css/alertify.rtl.css">
         <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
 
         <!--jQuery hai bc-->
@@ -103,6 +118,13 @@
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <script src="/mini-project-2017/scripts/scripts.js"></script>
         <script src="/mini-project-2017/scripts/script_.js"></script>
+         <script src="/mini-project-2017/scripts/legacy.js"></script>
+        <script src="/mini-project-2017/scripts/picker.js"></script>
+        <script src="/mini-project-2017/scripts/picker.time.js"></script>
+        <script src="/mini-project-2017/scripts/picker.date.js"></script>
+        <script src="/mini-project-2017/scripts/alertify.min.js"></script>
+
+
 
 
         <script type="text/javascript" src="/mini-project-2017/scripts/rangeslider.min.js"></script>
@@ -119,11 +141,15 @@
         else if ($caller == 2)
             show_verify();
         else if ($caller == 3)
-            show_item($values[1]);
+            show_item($link, $values[1]);
         else if ($caller == 4) // check $_SESSION['username_']'s validity!
             show_index($link, $_SESSION['username_']);
         else if ($caller == 5) // check $_SESSION['username_']'s validity!
-            show_profile($link, $_SESSION['username_']);
+            show_profile($link, $_SESSION['username_'], get_user_id_($link, $_SESSION['username_']));
+        else if ($caller == 6)
+            show_history($link, get_user_id_($link, $_SESSION['username_']));
+        else if ($caller == 7)
+            show_category($link, $values[1]);
         else
             echo 'Not Found';
 
@@ -131,6 +157,6 @@
         include('site_footer.php');
     ?>
         <script src="/mini-project-2017/scripts/custom-file-input.js"></script>
-
+        
 </body>
 </html>

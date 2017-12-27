@@ -1,3 +1,4 @@
+
 <?php session_start(); require_once('clogs/db_connect.php'); require_once('clogs/functions.php');?>
 <!DOCTYPE html>
 <html>
@@ -11,6 +12,8 @@
     <link rel="stylesheet" href="/mini-project-2017/css/style_front_page.css">
             <link rel="stylesheet" href="/mini-project-2017/css/style.css">
             <link rel="stylesheet" type="text/css" href="/mini-project-2017/css/profile-styles.css">
+                <script src="/mini-project-2017/scripts/script_.js"></script>
+
 
     <style type="text/css">
       body {
@@ -70,169 +73,119 @@
       
         <h3>Electronics</h3>
     </div>
-		<div class="col-md-4">
+		<?php
+
+        $today = date('Y-m-d H:i');
+        $cat = "xx-1";
+        $items_ = get_active_items($link,$cat,$today);
+        $i = 0;
+        if ($items_ != null) {
+          while ($item = mysqli_fetch_object($items_)) {
+            $i++;
+            ?>
+
+            <div class="col-md-4">
             <div class="panel panel-info"  style="margin-left: 30px, margin-right: 30px">
                <div class="panel-heading">
-          	        <h3 class="panel-title">Book</h3>
+                    <h3 class="panel-title"><?=ucwords($item->name)?></h3>
                </div>
                 <div class="panel-body">
-                	<p>MRP: Rs. 30000</p>
                   <div class="thumbnail">
                     
-   					          <img src="img/iphone.jpg" alt="books" style="text-align: center;">
+                      <img src="/mini-project-2017/clogs/<?=$item->img?>" alt="books" style="text-align: center;">
                     
-                    <p style="font-size: 16px"><strong>AUCTION ID: </strong>113</p>
-      					     <div class="panel panel-footer">
-      						    <div class="bid-money">
-      							   <p class="bid-money">Rs. 0.00</p>
-      						      </div>
-      						    <div>
-      							   <small style="color: #FF8C00">Time left: </small>
-      							   <p id="demo-1"></p>
-      						    </div>
-      						  </div>
-      						
-      							<button class="btn btn-block"><strong>PLACE BID</strong></button>
-    						  </div>
+                   <!--  <p style="font-size: 16px"><strong>AUCTION ID: </strong>113</p>
+                     -->  <div class="panel panel-footer">
+                      <div class="bid-money">
+                        <p class="bid-money">MRP: <?=$item->bid_min_amt?></p>
+                        </div>
+                      <div>
+                       <small style="color: #FF8C00">Time left: </small>
+                       <p id="xs-demo-<?=$i;?>"></p>
+                      </div>
+                    </div>
+                  
+                    <a class="btn btn-block" href="/mini-project-2017/item/<?=$item->id?>/<?=$item->item_url_name?>"><strong>PLACE BID</strong></a>
+                  </div>
                 </div>
-     	  		  </div>
-			</div>	
-		  <div class="col-md-4">
-            <div class="panel panel-info" style="margin-left: 30px, margin-right: 30px">
-               <div class="panel-heading">
-          	        <h3 class="panel-title">iPhone 7</h3>
-               </div>
-                <div class="panel-body">
-                	<p>MRP: Rs. 30000</p>
-                  <div class="thumbnail" >
-   		         			<img src="img/iphone.jpg" alt="iphone">
-                    <p style="font-size: 16px"><strong>AUCTION ID: </strong>225</p>
-      						  	<div class="panel panel-footer">
-      					   	   <div class="bid-money">
-      							     <p class="bid-money">Rs. 0.00</p>
-      						    </div>
-      						    <div>
-      							   <small style="color: #FF8C00">Time left: </small>
-      							   <p id="demo-2"></p>
-      						    </div>
-      						    </div>
-      						
-      							<button class="btn btn-block"><strong>PLACE BID</strong></button>
-    						  </div>
-                </div>
-     	  		</div>
-			</div>	
-		  <div class="col-md-4">
-            <div class="panel panel-info" style="margin-left: 30px, margin-right: 30px">
-               <div class="panel-heading">
-          	        <h3 class="panel-title">iPhone 7</h3>
-               </div>
-                <div class="panel-body">
-                	<p>MRP: Rs. 30000</p>
-                  <div class="thumbnail">
-   		         			<img src="img/iphone.jpg" alt="iphone">
-                    <p style="font-size: 16px"><strong>AUCTION ID: </strong>746</p>
-      				    		<div class="panel panel-footer">
-      					 	     <div class="bid-money">
-      							     <p class="bid-money">Rs. 0.00</p>
-      						    </div>
-      						    <div>
-      							   <small style="color: #FF8C00">Time left: </small>
-      							   <p id="demo-3"></p>
-      						    </div>
-      						  </div>
-      						
-      							<button class="btn btn-block"><strong>PLACE BID</strong></button>
-    					     </div>
-                </div>
-     	  		</div>
-			 </div>	
-       <button type="button" class="pull-right btn but">VIEW ALL</button>
-     </div>
+              </div>
+        </div>  
+        <script type="text/javascript">
+          var x = <?=$i?>;
+          var time = '<?=addDayswithdate($item->auction_date,$item->auction_dur)?>';
+          setTimer('xs-demo-'+x, time);
+        </script>
+
+            <?php
+          }
+        }
+        else
+          echo "<h2>No active items found!</h2>";
+
+    ?>
+            <a href="/mini-project-2017/category/xx-1" class="pull-right btn but">VIEW ALL</a> 
+
+  </div>
+
      <br><br>
      <div class="container">
         <div class="text-center" style="font-size: 23px">
       
         <h3>Mobile Phones</h3>
     </div>
-    <div class="col-md-4">
+
+    <?php
+
+        $today = date('Y-m-d H:i');
+        $cat = "xx-3";
+        $items_ = get_active_items($link,$cat,$today);
+        $i = 0;
+        if ($items_ != null) {
+          while ($item = mysqli_fetch_object($items_)) {
+            $i++;
+            ?>
+
+            <div class="col-md-4">
             <div class="panel panel-info"  style="margin-left: 30px, margin-right: 30px">
                <div class="panel-heading">
-                    <h3 class="panel-title">Book</h3>
+                    <h3 class="panel-title"><?=ucwords($item->name)?></h3>
                </div>
                 <div class="panel-body">
-                  <p>MRP: Rs. 30000</p>
                   <div class="thumbnail">
                     
-                      <img src="img/iphone.jpg" alt="books" style="text-align: center;">
+                      <img src="/mini-project-2017/clogs/<?=$item->img?>" alt="books" style="text-align: center;">
                     
-                    <p style="font-size: 16px"><strong>AUCTION ID: </strong>113</p>
-                     <div class="panel panel-footer">
+                    <!-- <p style="font-size: 16px"><strong>AUCTION ID: </strong>113</p>
+                      --> <div class="panel panel-footer">
                       <div class="bid-money">
-                       <p class="bid-money">Rs. 0.00</p>
+                        <p class="bid-money">MRP: <?=$item->bid_min_amt?></p>
                         </div>
                       <div>
                        <small style="color: #FF8C00">Time left: </small>
-                       <p id="demo-4"></p>
+                       <p id="demo-<?=$i;?>"></p>
                       </div>
                     </div>
                   
-                    <button class="btn btn-block"><strong>PLACE BID</strong></button>
+                    <a class="btn btn-block" href="/mini-project-2017/item/<?=$item->id?>/<?=$item->item_url_name?>"><strong>PLACE BID</strong></a>
                   </div>
                 </div>
               </div>
-      </div>  
-      <div class="col-md-4">
-            <div class="panel panel-info" style="margin-left: 30px, margin-right: 30px">
-               <div class="panel-heading">
-                    <h3 class="panel-title">iPhone 7</h3>
-               </div>
-                <div class="panel-body">
-                  <p>MRP: Rs. 30000</p>
-                  <div class="thumbnail" >
-                    <img src="img/iphone.jpg" alt="iphone">
-                    <p style="font-size: 16px"><strong>AUCTION ID: </strong>225</p>
-                      <div class="panel panel-footer">
-                       <div class="bid-money">
-                         <p class="bid-money">Rs. 0.00</p>
-                      </div>
-                      <div>
-                       <small style="color: #FF8C00">Time left: </small>
-                       <p id="demo-5"></p>
-                      </div>
-                      </div>
-                  
-                    <button class="btn btn-block"><strong>PLACE BID</strong></button>
-                  </div>
-                </div>
-            </div>
-      </div>  
-      <div class="col-md-4">
-            <div class="panel panel-info" style="margin-left: 30px, margin-right: 30px">
-               <div class="panel-heading">
-                    <h3 class="panel-title">iPhone 7</h3>
-               </div>
-                <div class="panel-body">
-                  <p>MRP: Rs. 30000</p>
-                  <div class="thumbnail">
-                    <img src="img/iphone.jpg" alt="iphone">
-                    <p style="font-size: 16px"><strong>AUCTION ID: </strong>746</p>
-                      <div class="panel panel-footer">
-                       <div class="bid-money">
-                         <p class="bid-money">Rs. 0.00</p>
-                      </div>
-                      <div>
-                       <small style="color: #FF8C00">Time left: </small>
-                       <p id="demo-6"></p>
-                      </div>
-                    </div>
-                  
-                    <button class="btn btn-block"><strong>PLACE BID</strong></button>
-                   </div>
-                </div>
-            </div>
-       </div> 
-        <button type="button" class="pull-right btn but">VIEW ALL</button>
+        </div>  
+        <script type="text/javascript">
+          var x = <?=$i?>;
+          var time = '<?=addDayswithdate($item->auction_date,$item->auction_dur)?>';
+          setTimer('demo-'+x, time);
+        </script>
+
+            <?php
+          }
+        }
+        else
+          echo "<h2>No active items found!</h2>";
+
+    ?>
+     
+            <a href="/mini-project-2017/category/xx-3" class="pull-right btn but">VIEW ALL</a> 
 	   </div>
      <br><br>
       <div class="container">
@@ -240,84 +193,58 @@
       
         <h3>Books</h3>
     </div>
-    <div class="col-md-4">
+    
+    <?php
+
+        $today = date('Y-m-d H:i');
+        $cat = "xx-2";
+        $items = get_active_items($link,$cat,$today);
+        $i = 0;
+        if ($items != null) {
+          while ($item = mysqli_fetch_object($items)) {
+            $i++;
+            ?>
+
+            <div class="col-md-4">
             <div class="panel panel-info"  style="margin-left: 30px, margin-right: 30px">
                <div class="panel-heading">
-                    <h3 class="panel-title">Book</h3>
+                    <h3 class="panel-title"><?=ucwords($item->name)?></h3>
                </div>
                 <div class="panel-body">
-                  <p>MRP: Rs. 30000</p>
                   <div class="thumbnail">
                     
-                      <img src="img/books.jpg" alt="books" style="text-align: center;">
+                      <img src="/mini-project-2017/clogs/<?=$item->img?>" alt="books" style="text-align: center;">
                     
-                    <p style="font-size: 16px"><strong>AUCTION ID: </strong>113</p>
                      <div class="panel panel-footer">
                       <div class="bid-money">
-                       <p class="bid-money">Rs. 0.00</p>
+                                                <p class="bid-money">MRP: <?=$item->bid_min_amt?></p>
+
                         </div>
                       <div>
                        <small style="color: #FF8C00">Time left: </small>
-                       <p id="demo-7"></p>
+                       <p id="xss-demo-<?=$i;?>"></p>
                       </div>
                     </div>
                   
-                    <button class="btn btn-block"><strong>PLACE BID</strong></button>
+                    <a class="btn btn-block" href="/mini-project-2017/item/<?=$item->id?>/<?=$item->item_url_name?>"><strong>PLACE BID</strong></a>
                   </div>
                 </div>
               </div>
-      </div>  
-      <div class="col-md-4">
-            <div class="panel panel-info" style="margin-left: 30px, margin-right: 30px">
-               <div class="panel-heading">
-                    <h3 class="panel-title">Book</h3>
-               </div>
-                <div class="panel-body">
-                  <p>MRP: Rs. 30000</p>
-                  <div class="thumbnail" >
-                    <img src="img/books.jpg" alt="iphone">
-                    <p style="font-size: 16px"><strong>AUCTION ID: </strong>225</p>
-                      <div class="panel panel-footer">
-                       <div class="bid-money">
-                         <p class="bid-money">Rs. 0.00</p>
-                      </div>
-                      <div>
-                       <small style="color: #FF8C00">Time left: </small>
-                       <p id="demo-8"></p>
-                      </div>
-                      </div>
-                  
-                    <button class="btn btn-block"><strong>PLACE BID</strong></button>
-                  </div>
-                </div>
-            </div>
-      </div>  
-      <div class="col-md-4">
-            <div class="panel panel-info" style="margin-left: 30px, margin-right: 30px">
-               <div class="panel-heading">
-                    <h3 class="panel-title">Book</h3>
-               </div>
-                <div class="panel-body">
-                  <p>MRP: Rs. 30000</p>
-                  <div class="thumbnail">
-                    <img src="img/books.jpg" alt="iphone">
-                    <p style="font-size: 16px"><strong>AUCTION ID: </strong>746</p>
-                      <div class="panel panel-footer">
-                       <div class="bid-money">
-                         <p class="bid-money">Rs. 0.00</p>
-                      </div>
-                      <div>
-                       <small style="color: #FF8C00">Time left: </small>
-                       <p id="demo-9"></p>
-                      </div>
-                    </div>
-                  
-                    <button class="btn btn-block"><strong>PLACE BID</strong></button>
-                   </div>
-                </div>
-            </div>
-       </div>
-        <button type="button" class="pull-right btn but">VIEW ALL</button> 
+        </div>  
+        <script type="text/javascript">
+          var x = <?=$i?>;
+          var time = '<?=addDayswithdate($item->auction_date,$item->auction_dur)?>';
+          setTimer('xss-demo-'+x, time);
+        </script>
+
+            <?php
+          }
+        }
+        else
+          echo "<h2>No active items found!</h2>";
+
+    ?>                <a href="/mini-project-2017/category/xx-2" class="pull-right btn but">VIEW ALL</a> 
+ 
      </div>
    </div>
      <br><br>
@@ -339,14 +266,13 @@
                 <div class="panel-body">
                   <p>MRP: Rs. 30000</p>
                   <div class="thumbnail">
-                    <img src="img/iphone.jpg" alt="iphone">
-                    <p style="font-size: 16px"><strong>AUCTION ID: </strong>225</p>
+                    <img src="/mini-project-2017/clogs/item_img/396502iphone6_1.jpeg" alt="iphone">
                      
             
                   </div>
                 </div>
                 <div class="panel-footer upcoming">
-                  <p><strong>Open after 10 days</strong></p>
+                  <p><strong>Open after 5 days</strong></p>
                 </div>
             </div>
       </div>
@@ -358,14 +284,13 @@
                 <div class="panel-body">
                   <p>MRP: Rs. 30000</p>
                   <div class="thumbnail" >
-                    <img src="img/iphone.jpg" alt="iphone">
-                    <p style="font-size: 16px"><strong>AUCTION ID: </strong>225</p>
+                    <img src="/mini-project-2017/clogs/item_img/90795phone1_1.jpeg" alt="iphone">
                       
                   </div>
 
                 </div>
                 <div class="panel-footer upcoming">
-                  <p><strong>Open after 10 days</strong></p>
+                  <p><strong>Open after 8 days</strong></p>
                 </div>
             </div>
       </div>
@@ -377,9 +302,8 @@
                 <div class="panel-body">
                   <p>MRP: Rs. 30000</p>
                   <div class="thumbnail" >
-                    <img src="img/iphone.jpg" alt="iphone">
-                    <p style="font-size: 16px"><strong>AUCTION ID: </strong>225</p>
-                      
+                    <img src="/mini-project-2017/clogs/item_img/152214lenevo_yoga3_tab_3.jpeg" alt="iphone">
+     
 
                   </div>
                 </div>
@@ -397,24 +321,22 @@
                   <p>MRP: Rs. 30000</p>
                   <div class="thumbnail" >
                     <img src="img/iphone.jpg" alt="iphone">
-                    <p style="font-size: 16px"><strong>AUCTION ID: </strong>225</p>
-                    
+                  
                 </div>
 
             </div>
             <div class="panel-footer upcoming">
-                  <p><strong>Open after 10 days</strong></p>
+                  <p><strong>Open after 3 days</strong></p>
                 </div>
           </div>
       </div>
     </div>
-     <button type="button" class="pull-right btn but">VIEW ALL</button>
   </div>
   <br>
   <div class="row" style="margin-top: 60px">
     <div class="container wrapper">
     <div class="col-sm-5" style="text-align: left; height: 213px">
-      <h2 style="height: 36px">Auction Bay bidding rules :</h2>
+      <h3 style="height: 36px">Auction Bay bidding rules :</h3>
       <div class="small-border"></div>
       <ul style="margin-left: -30px">
         <br>
@@ -432,7 +354,7 @@
     <div class="col-sm-1 middle-border"></div>
     <div class="col-sm-1"></div>
     <div class="col-sm-5" style="text-align: left;">
-      <h2>Protected Online Shopping</h2>
+      <h3>Protected Online Shopping</h3>
       <div class="small-border"></div>
       <ul style="margin-left: -30px;">
         <br>
@@ -444,7 +366,6 @@
         <?php require_once('site_footer.php');?>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="/mini-project-2017/scripts/script_.js"></script>
 
 
 </html>

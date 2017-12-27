@@ -14,8 +14,8 @@ var x = setInterval(function() {
   var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
   
-/*  countDownElement.innerHTML = hours + "h " + minutes + "m " + seconds + "s ";
-*/  if (distance < 0) {
+  countDownElement.innerHTML = hours + "h " + minutes + "m " + seconds + "s ";
+ if (distance < 0) {
     clearInterval(x);
     countDownElement.innerHTML = "EXPIRED";
   }

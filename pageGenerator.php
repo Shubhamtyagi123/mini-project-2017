@@ -213,7 +213,22 @@
 
 
 
-  function show_item($item_url_name) {
+  function show_item($link, $item_id) {
+
+      $item = get_item($link, $item_id);
+      $user_id = get_user_id($link, $_SESSION['username_']);
+      
+      if ($item != null && ($item->expiry_date > date('Y-m-d H:i'))) {
+
+        $min = $item->bid_min_amt;
+        $max = $item->bid_max_amt;
+        $interval = $item->bid_interval;
+        $seller = get_user_info($link, $item->user_id);
+        $bids = get_bids($link, $item_id);
+
+        if ($bids != null) 
+          $min = get_max_bid($link, $item_id); 
+        
     ?>
 
     <style type="text/css">
@@ -226,41 +241,85 @@
       <div class="row">
         <div class="col-md-5">
           <div class="img-div">
-            <div class="main-img"></div>
+            <div class="main-img" style="background: url('/mini-project-2017/clogs/<?=$item->img?>') "></div>
             <div class="sub-imgs">
-              <div class="sub-img"></div>
-              <div class="sub-img"></div>
-              <div class="sub-img"></div>
+              <div class="sub-img" onclick="change_img(event)" style="background: url('/mini-project-2017/clogs/<?=$item->img1?>') "></div>
+              <div class="sub-img" onclick="change_img(event)" style="background: url('/mini-project-2017/clogs/<?=$item->img2?>') "></div>
+              <div class="sub-img" onclick="change_img(event)" style="background: url('/mini-project-2017/clogs/<?=$item->img3?>') "></div>
             </div>
           </div>
         </div>
+        <script type="text/javascript">
+          function change_img(e) {
+            var main_img = document.getElementsByClassName('main-img')[0];
+            var img = main_img.style.backgroundImage;
+              main_img.style.backgroundImage = e.target.style.backgroundImage;
+              e.target.style.backgroundImage = img;
+
+          }
+        </script>
         <div class="col-md-7 text-left mrg-left">
           <div class="item-name">
-            <p>Lorem ipsum dolor sit amet</p>
+            <p><?=ucwords($item->name)?></p>
           </div>
+          <div id="time-left" class=""></div>
+          <script type="text/javascript">
+            setTimer('time-left', '<?=$item->expiry_date?>')
+          </script>
           <div class="desc">
             <div class="desc-head">Description</div>
-            <div class="desc-body"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto dignissimos quis consectetur mollitia, facilis praesentium perspiciatis ea aut similique ipsa ut vero voluptates doloremque porro labore sit, alias quisquam saepe! 
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit iure, aspernatur vero vitae saepe magnam consequuntur fuga sint, consequatur ut quod corporis impedit explicabo nobis pariatur porro reprehenderit eius quasi.</p>
+            <div class="desc-body"><p><?=$item->item_desc?></p>
             </div>
           </div>
           <hr>
           <div class="bider-area row">
             <div class="bid-input col-md-9">
-              <input id="bid-inpt-bar" type="range" min="10" max="9999" value="15" step="5">           
+
+              <input id="bid-inpt-bar" type="range" value="<?=$min?>" min="0" max="<?=$max?>" step="<?=$interval?>">           
             </div>
 
             <div class="bid-amt col-md-3">
               <i class="fa fa-inr fa-2x"></i><span id="amt"></span>
             </div>
             <div class="col-md-12">
-            <button class="btn" id="bid_btn">Make BID</button>
+            <button class="btn" id="bid_btn" onclick="make_bid(event)">Make BID</button>
+            <script type="text/javascript">
+              function make_bid(e) {
+                var user_id = "<?=$user_id?>";
+                var item_user_id = "<?=$item->user_id?>";
+                var bids_left = "<?=get_bids_left($link, $user_id)?>";
+                   alertify.set('notifier','position', 'top-right');
+
+                if (user_id == item_user_id) 
+                  alertify.warning('Ooops! Seems like you are not allowed to bid on this Item.');
+                
+                else if (bids_left <= 0) 
+                  alertify.warning('Ooops! Seems like you crossed your daily bid chances');
+                
+                else {
+                  // bid
+                  var amt = document.getElementById('bid-inpt-bar').value;
+                  $.ajax({
+                    type : 'POST',
+                    url : '/mini-project-2017/clogs/make_my_bid.php',
+                    data : {'user_id': user_id, 'item_id' : '<?=$item_id?>', 'bid_amt' : amt },
+                    success : function(res) {
+                      alertify.success(res);
+                      bids_left--;
+                    }, 
+                    error : function(a,b,c) {
+                      alert('Could not connect to the server. Please try again!');
+                    }
+                  })
+                }
+              }
+            </script>
             </div>
           </div>
         </div>
       </div>
       <hr>
-      <div class="row top-marg">
+      <div class="row top-marg text-left">
         <div class="col-md-4">
           <div class="seller-info">
             <div class="head-heading text-left">
@@ -272,9 +331,9 @@
                 
               </div>
               <div class="seller-details text-center">
-                <div id="name">Aditya Saxena</div>
-                <div id="contact">9897171001</div>
-                <div id="email">adityasaxena602@gmail.com</div>
+                <div id="name"><?=$seller->f_name." ".$seller->l_name?></div>
+                <div id="contact"><?=$seller->contact_number?></div>
+                <div id="email"><?=$seller->email?></div>
               </div>
 
             </div>
@@ -284,10 +343,9 @@
               <div class="small-border"></div>
             </div>
               <div class="i-info text-left">
-                <div class="li-list">Auction ID : <span class="num-info">AUCBAY-2178</span></div>
-                <div class="li-list">Product ID : <span class="num-info">AUCBAYITM-221378</span></div>
-                <div class="li-list">Auction Start : <span class="num-info">28-Oct-2017</span></div>
-                <div class="li-list">Auction End : <span class="num-info">29-Oct-2017</span></div>
+                <div class="li-list">Product ID : <span class="num-info"><?=$item->id?></span></div>
+                <div class="li-list">Auction Start : <span class="num-info"><?=$item->auction_date?></span></div>
+                <div class="li-list">Auction End : <span class="num-info"><?=addDayswithdate($item->auction_date, $item->auction_dur)?></span></div>
               </div>
             </div>
           </div>
@@ -298,74 +356,78 @@
               <p>Top Bids</p>
               <div class="small-border"></div>
             </div>
+
+          <?php
+            if ($bids != null) {
+              while ($x = mysqli_fetch_object($bids)){
+                $user = get_user_info($link, $x->user_id);
+                ?>
+
             <div class="user-div">
               <div class="user-img"></div>
               <div class="user-info">
-                <div class="user-name">Shubham Tyagi</div>
+                <div class="user-name"><?=$user->f_name." ".$user->l_name?></div>
                 <div class="user-bid">
-                  <i class="fa fa-inr"></i><span class="bid-amt-ss">340</span>
+                  <i class="fa fa-inr"></i><span class="bid-amt-ss"><?=$x->bid_amt?></span>
                 </div>
               </div>
             </div>
-            <div class="user-div">
-              <div class="user-img"></div>
-              <div class="user-info">
-                <div class="user-name">Aditya Saxena</div>
-                <div class="user-bid">
-                  <i class="fa fa-inr"></i><span class="bid-amt-ss">440</span>
-                </div>
-              </div>
-            </div>
-            <div class="user-div">
-              <div class="user-img"></div>
-              <div class="user-info">
-                <div class="user-name">Aditya Bhat</div>
-                <div class="user-bid">
-                  <i class="fa fa-inr"></i><span class="bid-amt-ss">40</span>
-                </div>
-              </div>
-            </div>
+
+                <?php
+              }
+            }else
+            echo "<div class='text-left' style='padding-top : 10px;'><h3>Be the first to bid!<h3></div>"
+          ?>
+
+
+            
+            
             
           </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4 text-left">
           <div class="head-heading text-left">
               <p>Similar Products</p>
               <div class="small-border"></div>
             </div>
             <!--  limit the product name to max 4 words-->
+
+            <?php
+              $today = date('Y-m-d');
+              $sim_items = get_active_items($link, $item->category, $today);
+              if ($sim_items != null) {
+                  while($sim_item = mysqli_fetch_object($sim_items)) {
+
+                    if ($sim_item->id != $item_id) {
+
+                      $price = get_max_bid($link, $sim_item->id);
+                      if ($price == null)
+                        $max_price = $sim_item->bid_min_amt;
+                      else
+                        $max_price = $price;
+                    ?>
+
+
             <div class="product-div">
-              <div class="product-img-div"></div>
+              <div class="product-img-div" style="background : url('/mini-project-2017/clogs/<?=$sim_item->img?>')"></div>
               <div class="product-info-div">
-                <div class="product-name-div">Lorem ispsom lato roboto</div>
+                <div class="product-name-div"><a href="/mini-project-2017/item/<?=$sim_item->id?>/<?=$sim_item->item_url_name?>"><?=substr($sim_item->name,0,17)."..."?></a></div>
                 <div class="lower-part">
-                <div class="bid-btn"><button class="bid-btn-small">Bid Now</button></div>
-                <div class="bid-amt-small"><i class="fa fa-inr"></i><span class="bid-amt-ss">300</span></div>
+                <div class="bid-btn"><a href="/mini-project-2017/item/<?=$sim_item->id?>/<?=$sim_item->item_url_name?>" class="bid-btn-small">Bid</a></div>
+                <div class="bid-amt-small"><i class="fa fa-inr"></i><span class="bid-amt-ss"><?=$max_price?></span></div>
                 </div>
               </div>
             </div>
 
-            <div class="product-div">
-              <div class="product-img-div"></div>
-              <div class="product-info-div">
-                <div class="product-name-div">Lorem ispsom lato roboto </div>
-                <div class="lower-part">
-                <div class="bid-btn"><button class="bid-btn-small">Bid Now</button></div>
-                <div class="bid-amt-small"><i class="fa fa-inr"></i><span class="bid-amt-ss">300</span></div>
-                </div>
-              </div>
-            </div>
+                    <?php
+                  }
+                }
+              }
 
-            <div class="product-div">
-              <div class="product-img-div"></div>
-              <div class="product-info-div">
-                <div class="product-name-div">Lorem ispsom lato roboto</div>
-                <div class="lower-part">
-                <div class="bid-btn"><button class="bid-btn-small">Bid Now</button></div>
-                <div class="bid-amt-small"><i class="fa fa-inr"></i><span class="bid-amt-ss">300</span></div>
-                </div>
-              </div>
-            </div>
+            ?>
+
+          
+           
         </div>
       </div>
     </div>
@@ -413,6 +475,119 @@
     </script>
        
     <?php
+    }
+    else
+    {
+
+      ?>
+  <style type="text/css">
+    body {
+      background:  none !important;
+    }
+
+  </style>
+  <h2 style="margin-top: 80px;">Item has been Expired!</h2>
+      <?php
+
+    }
+
+  }
+
+
+  function show_category($link, $cat_code) {
+        
+        $cat_name = get_category_name($link, $cat_code);
+        $items = get_all_items($link, $cat_code, date('Y-m-d H:i'));
+?>
+<style type="text/css">
+  body {
+    background: none !important;;
+  }
+</style>
+<div class="container text-left" style="margin-top: 30px;">
+<div class="headign-section">
+  <h3><?=ucwords($cat_name)?></h3>
+  <div class="small-border"></div>
+</div>
+<div class="row">
+<?php
+        if ($items != null) {
+          $i = 0;
+          while($item = mysqli_fetch_object($items)) {
+            $max_bid = get_max_bid($link, $item->id);
+            $i++;
+            ?>
+      <div class="col-md-4" style="margin-top: 40px;">
+                <div class="panel panel-info"  style="margin-left: 30px, margin-right: 30px">
+                    <div class="panel-heading">
+                        <h3 class="panel-title"><?=$item->name?></h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="thumbnail">
+                          <img src="/mini-project-2017/clogs/<?=$item->img?>" alt="books" style="text-align: center;">
+                      <div class="panel panel-footer">
+                        <div class="bid-money">
+                          <p class="bid-money">MRP: <?=isset($mix_bid)?$max_bid:$item->bid_min_amt?></p>
+                          </div>
+                        <div>
+                        <small style="color: #FF8C00">Time left: <p id="d-<?=$i?>"> </small>
+                        <p id="demo-1"></p>
+                        </div>
+                      </div>
+                    <a href="/mini-project-2017/item/<?=$item->id?>/<?=$item->item_url_name?>" class="btn btn-block"><strong>PLACE BID</strong></a>
+                </div>
+                    </div>
+                </div>
+        </div>  
+        <script type="text/javascript">
+          setTimer('d-<?=$i?>', '<?=$item->expiry_date?>');
+        </script>
+
+            <?php
+          }
+        }
+
+    ?>
+</div>
+<div class="popular-bids">
+  <?php
+    $auct_items = get_some_auct_items($link,3);
+    if ($auct_items != null ) {
+      ?>
+  <div class="heading-section">
+    <h3>Popular Bids</h3>
+    <div class="small-border"></div>
+    <div class="row">
+  </div>
+      <?php
+
+      while($auct_item = mysqli_fetch_object($auct_items)) {
+        $item = get_item($link, $auct_item->item_id);
+
+        ?>
+          <div class="col-md-4">
+             <div class="product-div">
+                      <div class="product-img-div" style="background:url('/mini-project-2017/clogs/<?=$item->img?>')"></div>
+                      <div class="product-info-div">
+                        <div class="product-name-div"><a href="/mini-project-2017/item/<?=$auct_item->item_id?>/<?=$item->item_url_name?>"><?=substr($item->name,0,17)."..."?></a></div>
+                        <div class="lower-part">
+                          <div class="bid-btn"><a href="/mini-project-2017/item/<?=$auct_item->item_id?>/<?=$item->item_url_name?>" class="bid-btn-small">Bid</a></div>
+                          <div class="bid-amt-small"><i class="fa fa-inr"></i><span class="bid-amt-ss"><?=$auct_item->bid_amt?></span></div>
+                        </div>
+                      </div>
+                  </div>
+          </div>
+        <?php
+      }
+      echo '</div>';
+    }
+  ?>
+</div>
+</div>
+
+
+    <?php
+
   }
 
 ?>
